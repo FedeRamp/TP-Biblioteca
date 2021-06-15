@@ -42,7 +42,7 @@ namespace Biblioteca.Entidades
 
         public override string ToString()
         {
-            return $"{this.id}) {this.nombreLibro} ${this.precio}";
+            return $"{this.id}) Libro: {this.idLibro} ${this.precio}";
         }
 
         public string InfoCompleta()

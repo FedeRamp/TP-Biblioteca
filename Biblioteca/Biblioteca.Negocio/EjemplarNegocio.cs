@@ -33,7 +33,10 @@ namespace Biblioteca.Negocio
 
         }
 
-        public List<Ejemplar> Ejemplares { get => ejemplares; set => ejemplares = value; }
+        public List<Ejemplar> Traer() 
+        {
+            return ejemplares;
+        }
 
     }
 }

@@ -228,7 +228,7 @@ namespace Biblioteca.UI
             this.panelIngresar.Controls.Add(this.txtPlazo);
             this.panelIngresar.Location = new System.Drawing.Point(16, 90);
             this.panelIngresar.Name = "panelIngresar";
-            this.panelIngresar.Size = new System.Drawing.Size(509, 40);
+            this.panelIngresar.Size = new System.Drawing.Size(509, 44);
             this.panelIngresar.TabIndex = 7;
             this.panelIngresar.Visible = false;
             // 

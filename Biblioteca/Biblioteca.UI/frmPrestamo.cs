@@ -17,14 +17,14 @@ namespace Biblioteca.UI
         private bool ingresarExpandido;
         private bool consultarExpandido;
         private ClienteNegocio clienteNegocio;
-        //private EjemplarNegocio ejemplarNegocio;
+        private EjemplarNegocio ejemplarNegocio;
         private PrestamoNegocio prestamoNegocio;
 
         public frmPrestamo()
         {
             InitializeComponent();
             clienteNegocio = new ClienteNegocio();
-            //ejemplarNegocio = new EjemplarNegocio();
+            ejemplarNegocio = new EjemplarNegocio();
             prestamoNegocio = new PrestamoNegocio();
         }
 
@@ -126,6 +126,7 @@ namespace Biblioteca.UI
         private void frmPrestamo_Load(object sender, EventArgs e)
         {
             IniciarClientes();
+            IniciarEjemplares();
             ingresarExpandido = false;
             consultarExpandido = false;
         }
@@ -139,8 +140,15 @@ namespace Biblioteca.UI
 
         }
 
+        private void IniciarEjemplares()
+        {
+            comboBox2.DataSource = null;
+            comboBox2.DataSource = ejemplarNegocio.Traer();
+        }
+
         private void ActualizarPrestamos()
         {
+            prestamoNegocio.Update();
             Cliente cliente = (Cliente)comboBox3.SelectedItem;
             listBox1.DataSource = prestamoNegocio.PrestamosPorCliente(cliente.Id);
         }
@@ -153,6 +161,7 @@ namespace Biblioteca.UI
                 Cliente cliente = (Cliente)comboBox1.SelectedItem;
                 Ejemplar ejemplar = (Ejemplar)comboBox2.SelectedItem;
                 prestamoNegocio.InsertarPrestamo(cliente.Id, ejemplar.Id, Convert.ToInt32(txtPlazo.Text));
+                ActualizarPrestamos();
             } else
             {
                 MessageBox.Show("Hay campos obligatorios sin rellenar o llenos incorrectamente");
@@ -178,7 +187,6 @@ namespace Biblioteca.UI
         {
             Prestamo prestamo = (Prestamo)listBox1.SelectedItem;
             MessageBox.Show( prestamoNegocio.DevolverPrestamo(prestamo));
-            prestamoNegocio.Update();
             ActualizarPrestamos();
         }
 

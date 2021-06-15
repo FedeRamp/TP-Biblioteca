@@ -39,7 +39,7 @@ namespace Biblioteca.Negocio
 
         public string InsertarPrestamo(int idCliente, int idEjemplar, int plazo)
         {
-            Prestamo prestamo = new Prestamo(idCliente, idEjemplar, plazo, false, DateTime.Today, DateTime.Today.AddDays(plazo));
+            Prestamo prestamo = new Prestamo(idCliente, idEjemplar, plazo, true, DateTime.Today, DateTime.Today.AddDays(plazo));
             TransactionResult tr = PrestamoMapper.Insertar(prestamo);
             return tr.ToString();
         }

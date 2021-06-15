@@ -14,7 +14,7 @@ namespace Biblioteca.Datos.Mappers
     {
         static public List<Ejemplar> TraerTodos()
         {
-            string json2 = WebHelper.Get("Biblioteca/Ejemplar");
+            string json2 = WebHelper.Get("Biblioteca/Ejemplares");
             List<Ejemplar> resultado = MapList(json2);
             return resultado;
         }
@@ -27,7 +27,7 @@ namespace Biblioteca.Datos.Mappers
         {
             NameValueCollection obj = ReverseMap(ejemplar);//Convierte el prestamo en un NVC
 
-            string json = WebHelper.Post("Biblioteca/Ejemplar", obj);//Devuelve el texto del json del resultado de la operacion
+            string json = WebHelper.Post("Biblioteca/Ejemplares", obj);//Devuelve el texto del json del resultado de la operacion
 
             TransactionResult lst = JsonConvert.DeserializeObject<TransactionResult>(json);//Convertimos el texto a un objeto
             //Devolvemos el objeto TransactionResult
