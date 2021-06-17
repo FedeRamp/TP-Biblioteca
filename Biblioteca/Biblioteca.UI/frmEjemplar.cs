@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Biblioteca.UI.ComponentesCustom;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -106,6 +107,20 @@ namespace Biblioteca.UI
             lblConsultar.Location = new Point(lblIngresar.Location.X, finDelPanel);
             panelIngresar.Visible = false;
             ingresarExpandido = false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ConfirmDelete confirm = new ConfirmDelete();
+            confirm.ShowDialog();
+            if (confirm.DialogResult == DialogResult.OK)
+            {
+                MessageBox.Show("Borrra3");
+            }
+            else if (confirm.DialogResult == DialogResult.Cancel)
+            {
+                MessageBox.Show("Cancela2");
+            }
         }
     }
 }

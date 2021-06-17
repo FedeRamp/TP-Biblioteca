@@ -1,5 +1,6 @@
 ﻿using Biblioteca.Entidades.Modelos;
 using Biblioteca.Negocio;
+using Biblioteca.UI.ComponentesCustom;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -166,6 +167,19 @@ namespace Biblioteca.UI
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            ConfirmDelete confirm = new ConfirmDelete();
+            confirm.ShowDialog();
+            if(confirm.DialogResult == DialogResult.OK)
+            {
+                MessageBox.Show("Borrra3");
+            } else if(confirm.DialogResult == DialogResult.Cancel)
+            {
+                MessageBox.Show("Cancela2");
+            }
         }
     }
 }
