@@ -107,5 +107,10 @@ namespace Biblioteca.UI
             panelIngresar.Visible = false;
             ingresarExpandido = false;
         }
+
+        private void frmCliente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

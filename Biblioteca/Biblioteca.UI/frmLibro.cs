@@ -167,5 +167,10 @@ namespace Biblioteca.UI
         {
 
         }
+
+        private void frmLibro_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

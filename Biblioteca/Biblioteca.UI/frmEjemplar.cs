@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Biblioteca.Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,10 @@ namespace Biblioteca.UI
     {
         private bool ingresarExpandido = false;
         private bool consultarExpandido = true;
+
+        //pendiente form main que traiga la lista y trabajar siempre con referencias?
+        List<Libro> libros;
+        public List<Libro> Libros { get => libros; set => libros = value; }
 
         public frmEjemplar()
         {
@@ -106,6 +111,46 @@ namespace Biblioteca.UI
             lblConsultar.Location = new Point(lblIngresar.Location.X, finDelPanel);
             panelIngresar.Visible = false;
             ingresarExpandido = false;
+        }
+
+        internal void TraerCodigo(int idLibro)
+        {
+            tbCodigoLibro.Text = idLibro.ToString();
+        }
+
+        private void frmEjemplar_Load(object sender, EventArgs e)
+        {
+            libros = ((frmInicial)Owner).Libros;
+        }
+
+        private void btnBusquedaAvanzada2_Click(object sender, EventArgs e)
+        {
+            Form frmBuscar = new frmBuscar();
+            frmBuscar.Owner = this;
+            frmBuscar.Show();
+        }
+
+        private void tbCodigoLibro_TextChanged(object sender, EventArgs e)
+        {
+            foreach (Libro libro in libros)
+            {
+                if (tbCodigoLibro.Text == libro.Id.ToString())
+                {
+                    lblDatosLibro.Text = $"Codigo: {libro.Id}" + "\n" + "\n" + "\n"
+                    + $"Título: {libro.Titulo}" + "\n" + "\n"
+                    + $"Autor: {libro.Autor}" + "\n" + "\n"
+                    + $"Editorial: {libro.Editorial}" + "\n" + "\n"
+                    + $"Edición: {libro.Edicion}" + "\n" + "\n"
+                    + $"Tema: {libro.Tema}" + "\n" + "\n"
+                    + $"Paginas: {libro.Paginas}" + "\n" + "\n";
+
+                    break;
+                }
+                else
+                {
+                    lblDatosLibro.Text = "Libro:";
+                }
+            }
         }
     }
 }
