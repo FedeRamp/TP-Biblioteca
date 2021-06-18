@@ -55,11 +55,11 @@ namespace Biblioteca.UI
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.panelConsultar = new System.Windows.Forms.Panel();
+            this.btnMasInfo = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.lblId = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.btnMasInfo = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.panelIngresar.SuspendLayout();
             this.panelConsultar.SuspendLayout();
@@ -68,6 +68,7 @@ namespace Biblioteca.UI
             // toolStrip1
             // 
             this.toolStrip1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.navCliente,
             this.toolStripSeparator1,
@@ -175,7 +176,7 @@ namespace Biblioteca.UI
             this.lblIngresar.ForeColor = System.Drawing.Color.Navy;
             this.lblIngresar.Location = new System.Drawing.Point(12, 66);
             this.lblIngresar.Name = "lblIngresar";
-            this.lblIngresar.Size = new System.Drawing.Size(90, 20);
+            this.lblIngresar.Size = new System.Drawing.Size(114, 25);
             this.lblIngresar.TabIndex = 1;
             this.lblIngresar.Text = ">  Ingresar";
             this.lblIngresar.Click += new System.EventHandler(this.lblIngresar_Click);
@@ -187,7 +188,7 @@ namespace Biblioteca.UI
             this.lblConsultar.ForeColor = System.Drawing.Color.Navy;
             this.lblConsultar.Location = new System.Drawing.Point(12, 159);
             this.lblConsultar.Name = "lblConsultar";
-            this.lblConsultar.Size = new System.Drawing.Size(101, 20);
+            this.lblConsultar.Size = new System.Drawing.Size(128, 25);
             this.lblConsultar.TabIndex = 2;
             this.lblConsultar.Text = ">  Consultar";
             this.lblConsultar.Click += new System.EventHandler(this.lblConsultar_Click);
@@ -228,7 +229,7 @@ namespace Biblioteca.UI
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(19, 205);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 13);
+            this.label6.Size = new System.Drawing.Size(59, 15);
             this.label6.TabIndex = 10;
             this.label6.Text = "Direccion";
             // 
@@ -237,7 +238,7 @@ namespace Biblioteca.UI
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(19, 157);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.Size = new System.Drawing.Size(55, 15);
             this.label3.TabIndex = 9;
             this.label3.Text = "Telefono";
             // 
@@ -246,7 +247,7 @@ namespace Biblioteca.UI
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(19, 109);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 13);
+            this.label4.Size = new System.Drawing.Size(39, 15);
             this.label4.TabIndex = 8;
             this.label4.Text = "Email";
             // 
@@ -255,7 +256,7 @@ namespace Biblioteca.UI
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(19, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.Size = new System.Drawing.Size(51, 15);
             this.label2.TabIndex = 7;
             this.label2.Text = "Apellido";
             // 
@@ -264,7 +265,7 @@ namespace Biblioteca.UI
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(19, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 6;
             this.label1.Text = "Nombre";
             // 
@@ -316,22 +317,26 @@ namespace Biblioteca.UI
             this.panelConsultar.TabIndex = 4;
             this.panelConsultar.Visible = false;
             // 
-            // listBox1
+            // btnMasInfo
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(22, 76);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(265, 108);
-            this.listBox1.TabIndex = 10;
+            this.btnMasInfo.BackColor = System.Drawing.Color.Aquamarine;
+            this.btnMasInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMasInfo.Location = new System.Drawing.Point(22, 190);
+            this.btnMasInfo.Name = "btnMasInfo";
+            this.btnMasInfo.Size = new System.Drawing.Size(100, 45);
+            this.btnMasInfo.TabIndex = 22;
+            this.btnMasInfo.Text = "Más Informacion";
+            this.btnMasInfo.UseVisualStyleBackColor = false;
+            this.btnMasInfo.Click += new System.EventHandler(this.btnMasInfo_Click);
             // 
-            // lblId
+            // comboBox1
             // 
-            this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(19, 16);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(39, 13);
-            this.lblId.TabIndex = 8;
-            this.lblId.Text = "Cliente";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(22, 32);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(148, 21);
+            this.comboBox1.TabIndex = 20;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button2
             // 
@@ -350,26 +355,22 @@ namespace Biblioteca.UI
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // comboBox1
+            // listBox1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(22, 32);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(148, 21);
-            this.comboBox1.TabIndex = 20;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(22, 76);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(265, 108);
+            this.listBox1.TabIndex = 10;
             // 
-            // btnMasInfo
+            // lblId
             // 
-            this.btnMasInfo.BackColor = System.Drawing.Color.Aquamarine;
-            this.btnMasInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMasInfo.Location = new System.Drawing.Point(22, 190);
-            this.btnMasInfo.Name = "btnMasInfo";
-            this.btnMasInfo.Size = new System.Drawing.Size(81, 37);
-            this.btnMasInfo.TabIndex = 22;
-            this.btnMasInfo.Text = "Más Informacion";
-            this.btnMasInfo.UseVisualStyleBackColor = false;
-            this.btnMasInfo.Click += new System.EventHandler(this.btnMasInfo_Click);
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(19, 16);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(45, 15);
+            this.lblId.TabIndex = 8;
+            this.lblId.Text = "Cliente";
             // 
             // frmCliente
             // 
