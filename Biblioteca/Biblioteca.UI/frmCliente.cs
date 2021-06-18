@@ -160,7 +160,7 @@ namespace Biblioteca.UI
             confirm.ShowDialog();
             if (confirm.DialogResult == DialogResult.OK)
             {
-                MessageBox.Show( clienteNegocio.BorrarCliente(cliente));
+                clienteNegocio.BorrarCliente(cliente);
                 ActualizarClientes();
             }
 
