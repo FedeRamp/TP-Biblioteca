@@ -34,11 +34,44 @@ namespace Biblioteca.Entidades
         public Cliente() { }
 
         [DataMember(Name = "direccion")]
-        public string Direccion { get => direccion; set => direccion = value; }
+        public string Direccion
+        {
+            get
+            {
+                if (direccion == null)
+                {
+                    return "";
+                }
+                return direccion;
+            }
+            set => direccion = value; 
+        }
         [DataMember(Name = "email")]
-        public string Email { get => email; set => email = value; }
+        public string Email
+        {
+            get
+            {
+                if(email == null)
+                {
+                    return "";
+                }
+                return email;
+            } 
+            set => email = value; 
+        }
         [DataMember(Name = "telefono")]
-        public string Telefono { get => telefono; set => telefono = value; }
+        public string Telefono
+        {
+            get
+            {
+                if (telefono == null)
+                {
+                    return "";
+                }
+                return telefono;
+            }
+            set => telefono = value;
+        }
         [DataMember(Name = "fechaAlta")]
         public DateTime FechaAlta { get => fechaAlta; set => fechaAlta = value; }
         [DataMember(Name = "activo")]

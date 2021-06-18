@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Biblioteca.Entidades;
+using Biblioteca.Negocio;
+using Biblioteca.UI.ComponentesCustom;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +15,16 @@ namespace Biblioteca.UI
 {
     public partial class frmCliente : Form
     {
-        private bool ingresarExpandido = false;
-        private bool consultarExpandido = true;
+        private bool ingresarExpandido;
+        private bool consultarExpandido;
+        private ClienteNegocio clienteNegocio;
+        private PrestamoNegocio prestamoNegocio;
         public frmCliente()
         {
+            ingresarExpandido = false;
+            consultarExpandido = false;
+            clienteNegocio = new ClienteNegocio();
+            prestamoNegocio = new PrestamoNegocio();
             InitializeComponent();
         }
         //***CONTROLES NAVEGACION***//
@@ -106,6 +115,61 @@ namespace Biblioteca.UI
             lblConsultar.Location = new Point(lblIngresar.Location.X, finDelPanel);
             panelIngresar.Visible = false;
             ingresarExpandido = false;
+        }
+
+        private void frmCliente_Load(object sender, EventArgs e)
+        {
+            IniciarClientes();
+        }
+
+        private void IniciarClientes()
+        {
+            comboBox1.DataSource = null;
+            comboBox1.DataSource = clienteNegocio.Traer();
+        }
+
+        private void ActualizarClientes()
+        {
+            clienteNegocio.Update();
+            comboBox1.DataSource = clienteNegocio.Traer();
+        }
+
+        private void ActualizarPrestamos(Cliente cliente)
+        {
+            listBox1.DataSource = prestamoNegocio.PrestamosPorCliente(cliente.Id);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBox1.DataSource != null)
+            {
+                Cliente cliente = (Cliente)comboBox1.SelectedItem;
+                ActualizarPrestamos(cliente);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = (Cliente)comboBox1.SelectedItem;
+            BorrarCliente(cliente);
+        }
+
+        private void BorrarCliente(Cliente cliente)
+        {
+            ConfirmDelete confirm = new ConfirmDelete();
+            confirm.ShowDialog();
+            if (confirm.DialogResult == DialogResult.OK)
+            {
+                MessageBox.Show( clienteNegocio.BorrarCliente(cliente));
+                ActualizarClientes();
+            }
+
+        }
+
+        private void btnMasInfo_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = (Cliente)comboBox1.SelectedItem;
+            MessageBox.Show(cliente.InfoCompleta());
         }
     }
 }
