@@ -1,5 +1,6 @@
 ﻿using Biblioteca.Entidades;
 using Biblioteca.Negocio;
+using Biblioteca.UI.ComponentesCustom;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -194,6 +195,19 @@ namespace Biblioteca.UI
         {
             Prestamo prestamo = (Prestamo)listBox1.SelectedItem;
             MessageBox.Show(prestamo.InfoCompleta());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ConfirmDelete confirm = new ConfirmDelete();
+            confirm.ShowDialog();
+            if (confirm.DialogResult == DialogResult.OK)
+            {
+                Prestamo prestamo = (Prestamo)listBox1.SelectedItem;
+                prestamoNegocio.BorrarPrestamo(prestamo);
+                ActualizarPrestamos();
+            }
+            
         }
     }
 }

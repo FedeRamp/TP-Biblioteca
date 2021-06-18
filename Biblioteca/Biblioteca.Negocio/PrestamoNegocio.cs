@@ -49,5 +49,11 @@ namespace Biblioteca.Negocio
             TransactionResult tr = PrestamoMapper.Devolver(prestamo);
             return tr.ToString();
         }
+
+        public string BorrarPrestamo(Prestamo prestamo)
+        {
+            TransactionResult tr = PrestamoMapper.Borrar(prestamo);
+            return tr.ToString();
+        }
     }
 }

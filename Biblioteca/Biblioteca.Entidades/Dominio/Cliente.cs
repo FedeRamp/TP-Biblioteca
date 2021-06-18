@@ -17,6 +17,20 @@ namespace Biblioteca.Entidades
         private bool activo;
         private int id;
 
+        public Cliente(int dni, string nombre, string apellido, string direccion, string email, 
+            string telefono, DateTime fechaNacimiento, DateTime fechaAlta, bool activo) 
+        {
+            this.Dni = dni;
+            this.Nombre = nombre;
+            this.Apellido = apellido;
+            this.direccion = direccion;
+            this.email = email;
+            this.telefono = telefono; 
+            this.FechaNacimiento = fechaNacimiento;
+            this.fechaAlta = fechaAlta;
+            this.activo = activo;
+        }
+
         public Cliente() { }
 
         [DataMember(Name = "direccion")]
