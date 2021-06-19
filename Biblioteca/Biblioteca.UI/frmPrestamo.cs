@@ -20,39 +20,43 @@ namespace Biblioteca.UI
         private ClienteNegocio clienteNegocio;
         private EjemplarNegocio ejemplarNegocio;
         private PrestamoNegocio prestamoNegocio;
+        private LibroNegocio libroNegocio;
 
-        public frmPrestamo()
+        public frmPrestamo(ClienteNegocio clienteNegocio, EjemplarNegocio ejemplarNegocio, PrestamoNegocio prestamoNegocio, LibroNegocio libroNegocio)
         {
             InitializeComponent();
-            clienteNegocio = new ClienteNegocio();
-            ejemplarNegocio = new EjemplarNegocio();
-            prestamoNegocio = new PrestamoNegocio();
+            ingresarExpandido = false;
+            consultarExpandido = false;
+            this.clienteNegocio = clienteNegocio;
+            this.ejemplarNegocio = ejemplarNegocio;
+            this.prestamoNegocio = prestamoNegocio;
+            this.libroNegocio = libroNegocio;
         }
 
         private void navLibro_Click(object sender, EventArgs e)
         {
-            frmLibro frmLib = new frmLibro();
+            frmLibro frmLib = new frmLibro(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmLib.Show();
             this.Hide();
         }
 
         private void navCliente_Click(object sender, EventArgs e)
         {
-            frmCliente frmClient = new frmCliente();
+            frmCliente frmClient = new frmCliente(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmClient.Show();
             this.Hide();
         }
 
         private void navEjemplar_Click(object sender, EventArgs e)
         {
-            frmEjemplar frmEjem = new frmEjemplar();
+            frmEjemplar frmEjem = new frmEjemplar(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmEjem.Show();
             this.Hide();
         }
 
         private void navReportes_Click(object sender, EventArgs e)
         {
-            frmReportes frmRep = new frmReportes();
+            frmReportes frmRep = new frmReportes(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmRep.Show();
             this.Hide();
         }
@@ -128,8 +132,6 @@ namespace Biblioteca.UI
         {
             IniciarClientes();
             IniciarEjemplares();
-            ingresarExpandido = false;
-            consultarExpandido = false;
         }
 
         private void IniciarClientes()

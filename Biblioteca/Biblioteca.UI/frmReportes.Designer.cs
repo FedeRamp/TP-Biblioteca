@@ -31,21 +31,21 @@ namespace Biblioteca.UI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReportes));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.navCliente = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.navLibro = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.navEjemplar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.navPrestamo = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.navReportes = new System.Windows.Forms.ToolStripButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.navPrestamo = new System.Windows.Forms.ToolStripButton();
-            this.navReportes = new System.Windows.Forms.ToolStripButton();
-            this.navEjemplar = new System.Windows.Forms.ToolStripButton();
-            this.navLibro = new System.Windows.Forms.ToolStripButton();
-            this.navCliente = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,25 +69,89 @@ namespace Biblioteca.UI
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // navCliente
+            // 
+            this.navCliente.AutoSize = false;
+            this.navCliente.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.navCliente.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.navCliente.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.navCliente.Image = ((System.Drawing.Image)(resources.GetObject("navCliente.Image")));
+            this.navCliente.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.navCliente.Name = "navCliente";
+            this.navCliente.Size = new System.Drawing.Size(100, 25);
+            this.navCliente.Text = "Cliente";
+            this.navCliente.Click += new System.EventHandler(this.navCliente_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 28);
+            // 
+            // navLibro
+            // 
+            this.navLibro.AutoSize = false;
+            this.navLibro.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.navLibro.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.navLibro.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.navLibro.Image = ((System.Drawing.Image)(resources.GetObject("navLibro.Image")));
+            this.navLibro.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.navLibro.Name = "navLibro";
+            this.navLibro.Size = new System.Drawing.Size(100, 25);
+            this.navLibro.Text = "Libro";
+            this.navLibro.Click += new System.EventHandler(this.navLibro_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 28);
             // 
+            // navEjemplar
+            // 
+            this.navEjemplar.AutoSize = false;
+            this.navEjemplar.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.navEjemplar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.navEjemplar.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.navEjemplar.Image = ((System.Drawing.Image)(resources.GetObject("navEjemplar.Image")));
+            this.navEjemplar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.navEjemplar.Name = "navEjemplar";
+            this.navEjemplar.Size = new System.Drawing.Size(100, 25);
+            this.navEjemplar.Text = "Ejemplar";
+            this.navEjemplar.Click += new System.EventHandler(this.navEjemplar_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 28);
             // 
+            // navPrestamo
+            // 
+            this.navPrestamo.AutoSize = false;
+            this.navPrestamo.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.navPrestamo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.navPrestamo.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.navPrestamo.Image = ((System.Drawing.Image)(resources.GetObject("navPrestamo.Image")));
+            this.navPrestamo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.navPrestamo.Name = "navPrestamo";
+            this.navPrestamo.Size = new System.Drawing.Size(100, 25);
+            this.navPrestamo.Text = "Prestamo";
+            this.navPrestamo.Click += new System.EventHandler(this.navPrestamo_Click);
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 28);
+            // 
+            // navReportes
+            // 
+            this.navReportes.AutoSize = false;
+            this.navReportes.BackColor = System.Drawing.Color.White;
+            this.navReportes.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.navReportes.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.navReportes.Image = ((System.Drawing.Image)(resources.GetObject("navReportes.Image")));
+            this.navReportes.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.navReportes.Name = "navReportes";
+            this.navReportes.Size = new System.Drawing.Size(100, 25);
+            this.navReportes.Text = "Reportes";
             // 
             // textBox1
             // 
@@ -112,7 +176,7 @@ namespace Biblioteca.UI
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(47, 85);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.Size = new System.Drawing.Size(60, 15);
             this.label1.TabIndex = 4;
             this.label1.Text = "Cod Libro";
             // 
@@ -121,7 +185,7 @@ namespace Biblioteca.UI
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(47, 228);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(60, 15);
             this.label2.TabIndex = 7;
             this.label2.Text = "ID Cliente";
             // 
@@ -143,70 +207,6 @@ namespace Biblioteca.UI
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 5;
             // 
-            // navPrestamo
-            // 
-            this.navPrestamo.AutoSize = false;
-            this.navPrestamo.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.navPrestamo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.navPrestamo.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.navPrestamo.Image = ((System.Drawing.Image)(resources.GetObject("navPrestamo.Image")));
-            this.navPrestamo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.navPrestamo.Name = "navPrestamo";
-            this.navPrestamo.Size = new System.Drawing.Size(100, 25);
-            this.navPrestamo.Text = "Prestamo";
-            this.navPrestamo.Click += new System.EventHandler(this.navPrestamo_Click);
-            // 
-            // navReportes
-            // 
-            this.navReportes.AutoSize = false;
-            this.navReportes.BackColor = System.Drawing.Color.White;
-            this.navReportes.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.navReportes.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.navReportes.Image = ((System.Drawing.Image)(resources.GetObject("navReportes.Image")));
-            this.navReportes.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.navReportes.Name = "navReportes";
-            this.navReportes.Size = new System.Drawing.Size(100, 25);
-            this.navReportes.Text = "Reportes";
-            // 
-            // navEjemplar
-            // 
-            this.navEjemplar.AutoSize = false;
-            this.navEjemplar.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.navEjemplar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.navEjemplar.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.navEjemplar.Image = ((System.Drawing.Image)(resources.GetObject("navEjemplar.Image")));
-            this.navEjemplar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.navEjemplar.Name = "navEjemplar";
-            this.navEjemplar.Size = new System.Drawing.Size(100, 25);
-            this.navEjemplar.Text = "Ejemplar";
-            this.navEjemplar.Click += new System.EventHandler(this.navEjemplar_Click);
-            // 
-            // navLibro
-            // 
-            this.navLibro.AutoSize = false;
-            this.navLibro.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.navLibro.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.navLibro.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.navLibro.Image = ((System.Drawing.Image)(resources.GetObject("navLibro.Image")));
-            this.navLibro.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.navLibro.Name = "navLibro";
-            this.navLibro.Size = new System.Drawing.Size(100, 25);
-            this.navLibro.Text = "Libro";
-            this.navLibro.Click += new System.EventHandler(this.navLibro_Click);
-            // 
-            // navCliente
-            // 
-            this.navCliente.AutoSize = false;
-            this.navCliente.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.navCliente.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.navCliente.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.navCliente.Image = ((System.Drawing.Image)(resources.GetObject("navCliente.Image")));
-            this.navCliente.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.navCliente.Name = "navCliente";
-            this.navCliente.Size = new System.Drawing.Size(100, 25);
-            this.navCliente.Text = "Cliente";
-            this.navCliente.Click += new System.EventHandler(this.navCliente_Click);
-            // 
             // frmReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,7 +221,7 @@ namespace Biblioteca.UI
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmReportes";
-            this.Text = "frmReportes";
+            this.Text = "Biblioteca";
             this.Load += new System.EventHandler(this.frmReportes_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

@@ -41,6 +41,7 @@ namespace Biblioteca.UI
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.navReportes = new System.Windows.Forms.ToolStripButton();
             this.panelConsultar = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -62,7 +63,6 @@ namespace Biblioteca.UI
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.panelConsultar.SuspendLayout();
             this.panelIngresar.SuspendLayout();
@@ -71,6 +71,7 @@ namespace Biblioteca.UI
             // toolStrip1
             // 
             this.toolStrip1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.navCliente,
             this.toolStripSeparator1,
@@ -189,6 +190,22 @@ namespace Biblioteca.UI
             this.panelConsultar.TabIndex = 8;
             this.panelConsultar.Visible = false;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.Red;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(362, 161);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(97, 23);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "Eliminar";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(344, 32);
@@ -203,7 +220,7 @@ namespace Biblioteca.UI
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(235, 16);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 13);
+            this.label5.Size = new System.Drawing.Size(77, 15);
             this.label5.TabIndex = 15;
             this.label5.Text = "Cod de Libro";
             // 
@@ -251,7 +268,7 @@ namespace Biblioteca.UI
             this.lblResultado.AutoSize = true;
             this.lblResultado.Location = new System.Drawing.Point(84, 60);
             this.lblResultado.Name = "lblResultado";
-            this.lblResultado.Size = new System.Drawing.Size(132, 13);
+            this.lblResultado.Size = new System.Drawing.Size(152, 15);
             this.lblResultado.TabIndex = 9;
             this.lblResultado.Text = "Resultado de la Busqueda";
             // 
@@ -260,7 +277,7 @@ namespace Biblioteca.UI
             this.lblId.AutoSize = true;
             this.lblId.Location = new System.Drawing.Point(19, 16);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(84, 13);
+            this.lblId.Size = new System.Drawing.Size(99, 15);
             this.lblId.TabIndex = 8;
             this.lblId.Text = "Cod de Ejemplar";
             // 
@@ -278,7 +295,7 @@ namespace Biblioteca.UI
             this.lblConsultar.ForeColor = System.Drawing.Color.Navy;
             this.lblConsultar.Location = new System.Drawing.Point(21, 147);
             this.lblConsultar.Name = "lblConsultar";
-            this.lblConsultar.Size = new System.Drawing.Size(101, 20);
+            this.lblConsultar.Size = new System.Drawing.Size(128, 25);
             this.lblConsultar.TabIndex = 6;
             this.lblConsultar.Text = ">  Consultar";
             this.lblConsultar.Click += new System.EventHandler(this.lblConsultar_Click);
@@ -290,7 +307,7 @@ namespace Biblioteca.UI
             this.lblIngresar.ForeColor = System.Drawing.Color.Navy;
             this.lblIngresar.Location = new System.Drawing.Point(21, 54);
             this.lblIngresar.Name = "lblIngresar";
-            this.lblIngresar.Size = new System.Drawing.Size(90, 20);
+            this.lblIngresar.Size = new System.Drawing.Size(114, 25);
             this.lblIngresar.TabIndex = 5;
             this.lblIngresar.Text = ">  Ingresar";
             this.lblIngresar.Click += new System.EventHandler(this.lblIngresar_Click);
@@ -329,7 +346,7 @@ namespace Biblioteca.UI
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(19, 157);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.Size = new System.Drawing.Size(52, 15);
             this.label3.TabIndex = 9;
             this.label3.Text = "Editorial";
             // 
@@ -338,7 +355,7 @@ namespace Biblioteca.UI
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(19, 109);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.Size = new System.Drawing.Size(45, 15);
             this.label4.TabIndex = 8;
             this.label4.Text = "Idioma";
             // 
@@ -347,7 +364,7 @@ namespace Biblioteca.UI
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(19, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.Size = new System.Drawing.Size(48, 15);
             this.label2.TabIndex = 7;
             this.label2.Text = "Edición";
             // 
@@ -356,7 +373,7 @@ namespace Biblioteca.UI
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(19, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.Size = new System.Drawing.Size(80, 15);
             this.label1.TabIndex = 6;
             this.label1.Text = "Cod del Libro";
             // 
@@ -388,22 +405,6 @@ namespace Biblioteca.UI
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 0;
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(362, 161);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 23);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "Eliminar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // frmEjemplar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -416,7 +417,8 @@ namespace Biblioteca.UI
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panelIngresar);
             this.Name = "frmEjemplar";
-            this.Text = "frmEjemplar";
+            this.Text = "Biblioteca";
+            this.Load += new System.EventHandler(this.frmEjemplar_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panelConsultar.ResumeLayout(false);

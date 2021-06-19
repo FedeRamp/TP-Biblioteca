@@ -383,7 +383,7 @@ namespace Biblioteca.UI
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panelIngresar);
             this.Name = "frmCliente";
-            this.Text = "Form1";
+            this.Text = "Biblioteca";
             this.Load += new System.EventHandler(this.frmCliente_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

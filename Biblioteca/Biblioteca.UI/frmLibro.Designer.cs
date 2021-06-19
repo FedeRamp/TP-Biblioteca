@@ -409,7 +409,8 @@ namespace Biblioteca.UI
             this.Controls.Add(this.lblIngresar);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmLibro";
-            this.Text = "Libro";
+            this.Text = "Biblioteca";
+            this.Load += new System.EventHandler(this.frmLibro_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panelConsultar.ResumeLayout(false);

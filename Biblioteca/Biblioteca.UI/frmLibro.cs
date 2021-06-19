@@ -15,40 +15,48 @@ namespace Biblioteca.UI
 {
     public partial class frmLibro : Form
     {
-        private bool ingresarExpandido = false;
-        private bool consultarExpandido = true;
-        private LibroNegocio _libroNegocio;
+        private bool ingresarExpandido;
+        private bool consultarExpandido;
+        private ClienteNegocio clienteNegocio;
+        private EjemplarNegocio ejemplarNegocio;
+        private PrestamoNegocio prestamoNegocio;
+        private LibroNegocio libroNegocio;
 
-        public frmLibro()
+        public frmLibro(ClienteNegocio clienteNegocio, EjemplarNegocio ejemplarNegocio, PrestamoNegocio prestamoNegocio,LibroNegocio libroNegocio)
         {
-            _libroNegocio = new LibroNegocio();
+            ingresarExpandido = false;
+            consultarExpandido = false;
+            this.clienteNegocio = clienteNegocio;
+            this.ejemplarNegocio = ejemplarNegocio;
+            this.prestamoNegocio = prestamoNegocio;
+            this.libroNegocio = libroNegocio;
             InitializeComponent();
         }
 
         private void navCliente_Click(object sender, EventArgs e)
         {
-            frmCliente frmClient = new frmCliente();
+            frmCliente frmClient = new frmCliente(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmClient.Show();
             this.Hide();
         }
 
         private void navEjemplar_Click(object sender, EventArgs e)
         {
-            frmEjemplar frmEjem = new frmEjemplar();
+            frmEjemplar frmEjem = new frmEjemplar(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmEjem.Show();
             this.Hide();
         }
 
         private void navPrestamo_Click(object sender, EventArgs e)
         {
-            frmPrestamo frmPrest = new frmPrestamo();
+            frmPrestamo frmPrest = new frmPrestamo(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmPrest.Show();
             this.Hide();
         }
 
         private void navReportes_Click(object sender, EventArgs e)
         {
-            frmReportes frmRep = new frmReportes();
+            frmReportes frmRep = new frmReportes(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmRep.Show();
             this.Hide();
         }
@@ -88,7 +96,7 @@ namespace Biblioteca.UI
                 panelConsultar.Visible = true;
                 consultarExpandido = true;
                 this.lstListaLibros.DataSource = null;
-                this.lstListaLibros.DataSource = _libroNegocio.traerTodos();
+                this.lstListaLibros.DataSource = libroNegocio.traerTodos();
             }
             catch (Exception ex)
             {
@@ -128,7 +136,7 @@ namespace Biblioteca.UI
             try
             {
                 validar();
-                TransactionResult tr = _libroNegocio.insertarLibro(txtEdicion.Text, txtPaginas.Text, txtTitulo.Text, txtAutor.Text, txtEditorial.Text, txtTema.Text);
+                TransactionResult tr = libroNegocio.insertarLibro(txtEdicion.Text, txtPaginas.Text, txtTitulo.Text, txtAutor.Text, txtEditorial.Text, txtTema.Text);
 
             }
             catch (Exception ex)
@@ -161,7 +169,7 @@ namespace Biblioteca.UI
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             this.lstListaLibros.DataSource = null;
-            this.lstListaLibros.DataSource = _libroNegocio.traerTodos();
+            this.lstListaLibros.DataSource = libroNegocio.traerTodos();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -180,6 +188,11 @@ namespace Biblioteca.UI
             {
                 MessageBox.Show("Cancela2");
             }
+        }
+
+        private void frmLibro_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

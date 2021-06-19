@@ -41,6 +41,7 @@ namespace Biblioteca.UI
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.navReportes = new System.Windows.Forms.ToolStripButton();
             this.panelConsultar = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -58,7 +59,6 @@ namespace Biblioteca.UI
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPlazo = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.panelConsultar.SuspendLayout();
             this.panelIngresar.SuspendLayout();
@@ -190,6 +190,22 @@ namespace Biblioteca.UI
             this.panelConsultar.TabIndex = 8;
             this.panelConsultar.Visible = false;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.Red;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(293, 161);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(97, 23);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "Eliminar";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
@@ -204,7 +220,7 @@ namespace Biblioteca.UI
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(19, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 13);
+            this.label3.Size = new System.Drawing.Size(45, 15);
             this.label3.TabIndex = 15;
             this.label3.Text = "Cliente";
             // 
@@ -256,7 +272,7 @@ namespace Biblioteca.UI
             this.lblResultado.AutoSize = true;
             this.lblResultado.Location = new System.Drawing.Point(84, 60);
             this.lblResultado.Name = "lblResultado";
-            this.lblResultado.Size = new System.Drawing.Size(132, 13);
+            this.lblResultado.Size = new System.Drawing.Size(152, 15);
             this.lblResultado.TabIndex = 9;
             this.lblResultado.Text = "Resultado de la Busqueda";
             // 
@@ -267,7 +283,7 @@ namespace Biblioteca.UI
             this.lblConsultar.ForeColor = System.Drawing.Color.Navy;
             this.lblConsultar.Location = new System.Drawing.Point(12, 151);
             this.lblConsultar.Name = "lblConsultar";
-            this.lblConsultar.Size = new System.Drawing.Size(101, 20);
+            this.lblConsultar.Size = new System.Drawing.Size(128, 25);
             this.lblConsultar.TabIndex = 6;
             this.lblConsultar.Text = ">  Consultar";
             this.lblConsultar.Click += new System.EventHandler(this.lblConsultar_Click);
@@ -279,7 +295,7 @@ namespace Biblioteca.UI
             this.lblIngresar.ForeColor = System.Drawing.Color.Navy;
             this.lblIngresar.Location = new System.Drawing.Point(12, 58);
             this.lblIngresar.Name = "lblIngresar";
-            this.lblIngresar.Size = new System.Drawing.Size(90, 20);
+            this.lblIngresar.Size = new System.Drawing.Size(114, 25);
             this.lblIngresar.TabIndex = 5;
             this.lblIngresar.Text = ">  Ingresar";
             this.lblIngresar.Click += new System.EventHandler(this.lblIngresar_Click);
@@ -333,7 +349,7 @@ namespace Biblioteca.UI
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(19, 109);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
+            this.label4.Size = new System.Drawing.Size(72, 15);
             this.label4.TabIndex = 8;
             this.label4.Text = "Plazo (dias)";
             // 
@@ -342,7 +358,7 @@ namespace Biblioteca.UI
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(19, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.Size = new System.Drawing.Size(57, 15);
             this.label2.TabIndex = 7;
             this.label2.Text = "Ejemplar";
             // 
@@ -351,7 +367,7 @@ namespace Biblioteca.UI
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(19, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.Size = new System.Drawing.Size(45, 15);
             this.label1.TabIndex = 6;
             this.label1.Text = "Cliente";
             // 
@@ -362,22 +378,6 @@ namespace Biblioteca.UI
             this.txtPlazo.Size = new System.Drawing.Size(100, 20);
             this.txtPlazo.TabIndex = 2;
             this.txtPlazo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPlazo_KeyPress);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(293, 161);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 23);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Eliminar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmPrestamo
             // 
@@ -391,7 +391,7 @@ namespace Biblioteca.UI
             this.Controls.Add(this.lblIngresar);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmPrestamo";
-            this.Text = "frmPrestamo";
+            this.Text = "Biblioteca";
             this.Load += new System.EventHandler(this.frmPrestamo_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

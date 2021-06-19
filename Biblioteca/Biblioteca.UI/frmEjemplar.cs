@@ -1,4 +1,5 @@
-﻿using Biblioteca.UI.ComponentesCustom;
+﻿using Biblioteca.Negocio;
+using Biblioteca.UI.ComponentesCustom;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,38 +14,48 @@ namespace Biblioteca.UI
 {
     public partial class frmEjemplar : Form
     {
-        private bool ingresarExpandido = false;
-        private bool consultarExpandido = true;
+        private bool ingresarExpandido;
+        private bool consultarExpandido;
+        private ClienteNegocio clienteNegocio;
+        private EjemplarNegocio ejemplarNegocio;
+        private PrestamoNegocio prestamoNegocio;
+        private LibroNegocio libroNegocio;
 
-        public frmEjemplar()
+        public frmEjemplar(ClienteNegocio clienteNegocio, EjemplarNegocio ejemplarNegocio, PrestamoNegocio prestamoNegocio, LibroNegocio libroNegocio)
         {
             InitializeComponent();
+            ingresarExpandido = false;
+            consultarExpandido = false;
+            this.clienteNegocio = clienteNegocio;
+            this.ejemplarNegocio = ejemplarNegocio;
+            this.prestamoNegocio = prestamoNegocio;
+            this.libroNegocio = libroNegocio;
         }
 
         private void navLibro_Click(object sender, EventArgs e)
         {
-            frmLibro frmLib = new frmLibro();
+            frmLibro frmLib = new frmLibro(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmLib.Show();
             this.Hide();
         }
 
         private void navCliente_Click(object sender, EventArgs e)
         {
-            frmCliente frmClient = new frmCliente();
+            frmCliente frmClient = new frmCliente(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmClient.Show();
             this.Hide();
         }
 
         private void navPrestamo_Click(object sender, EventArgs e)
         {
-            frmPrestamo frmPrest = new frmPrestamo();
+            frmPrestamo frmPrest = new frmPrestamo(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmPrest.Show();
             this.Hide();
         }
 
         private void navReportes_Click(object sender, EventArgs e)
         {
-            frmReportes frmRep = new frmReportes();
+            frmReportes frmRep = new frmReportes(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmRep.Show();
             this.Hide();
         }
@@ -121,6 +132,11 @@ namespace Biblioteca.UI
             {
                 MessageBox.Show("Cancela2");
             }
+        }
+
+        private void frmEjemplar_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -18,40 +18,45 @@ namespace Biblioteca.UI
         private bool ingresarExpandido;
         private bool consultarExpandido;
         private ClienteNegocio clienteNegocio;
+        private EjemplarNegocio ejemplarNegocio;
         private PrestamoNegocio prestamoNegocio;
-        public frmCliente()
+        private LibroNegocio libroNegocio;
+
+        public frmCliente(ClienteNegocio clienteNegocio, EjemplarNegocio ejemplarNegocio, PrestamoNegocio prestamoNegocio, LibroNegocio libroNegocio)
         {
+            InitializeComponent();
             ingresarExpandido = false;
             consultarExpandido = false;
-            clienteNegocio = new ClienteNegocio();
-            prestamoNegocio = new PrestamoNegocio();
-            InitializeComponent();
+            this.clienteNegocio = clienteNegocio;
+            this.ejemplarNegocio = ejemplarNegocio;
+            this.prestamoNegocio = prestamoNegocio;
+            this.libroNegocio = libroNegocio;
         }
         //***CONTROLES NAVEGACION***//
         private void navLibro_Click(object sender, EventArgs e)
         {
-            frmLibro frmLib = new frmLibro();
+            frmLibro frmLib = new frmLibro(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmLib.Show();
             this.Hide();
         }
 
         private void navEjemplar_Click(object sender, EventArgs e)
         {
-            frmEjemplar frmEjem = new frmEjemplar();
+            frmEjemplar frmEjem = new frmEjemplar(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmEjem.Show();
             this.Hide();
         }
 
         private void navPrestamo_Click(object sender, EventArgs e)
         {
-            frmPrestamo frmPrest = new frmPrestamo();
+            frmPrestamo frmPrest = new frmPrestamo(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmPrest.Show();
             this.Hide();
         }
 
         private void navReportes_Click(object sender, EventArgs e)
         {
-            frmReportes frmRep = new frmReportes();
+            frmReportes frmRep = new frmReportes(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmRep.Show();
             this.Hide();
         }                    
