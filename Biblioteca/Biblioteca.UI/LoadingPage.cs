@@ -23,10 +23,18 @@ namespace Biblioteca.UI
             InitializeComponent();
         }
 
-        private void LoadingPage_Load(object sender, EventArgs e)
+        private void LoadingPage_Shown(object sender, EventArgs e)
         {
-            
-            
+            Progresar(0);
+            clienteNegocio = new ClienteNegocio();
+            Progresar(25);
+            ejemplarNegocio = new EjemplarNegocio();
+            Progresar(50);
+            libroNegocio = new LibroNegocio();
+            Progresar(75);
+            prestamoNegocio = new PrestamoNegocio();
+            Progresar(100);
+            Start();
         }
 
         private void Start()
@@ -34,19 +42,14 @@ namespace Biblioteca.UI
             frmCliente frmClient = new frmCliente(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmClient.Show();
             this.Hide();
+
         }
 
-        private void LoadingPage_Shown(object sender, EventArgs e)
+        private void Progresar(int progreso)
         {
-            clienteNegocio = new ClienteNegocio();
-            progressBar1.Value = 25;
-            ejemplarNegocio = new EjemplarNegocio();
-            progressBar1.Value = 50;
-            libroNegocio = new LibroNegocio();
-            progressBar1.Value = 75;
-            prestamoNegocio = new PrestamoNegocio();
-            progressBar1.Value = 100;
-            Start();
+            progressBar1.Value = progreso;
         }
+
+
     }
 }

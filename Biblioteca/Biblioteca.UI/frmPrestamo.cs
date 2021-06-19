@@ -151,7 +151,6 @@ namespace Biblioteca.UI
 
         private void ActualizarPrestamos()
         {
-            prestamoNegocio.Update();
             Cliente cliente = (Cliente)comboBox3.SelectedItem;
             listBox1.DataSource = prestamoNegocio.PrestamosPorCliente(cliente.Id);
         }
@@ -164,6 +163,7 @@ namespace Biblioteca.UI
                 Cliente cliente = (Cliente)comboBox1.SelectedItem;
                 Ejemplar ejemplar = (Ejemplar)comboBox2.SelectedItem;
                 prestamoNegocio.InsertarPrestamo(cliente.Id, ejemplar.Id, Convert.ToInt32(txtPlazo.Text));
+                prestamoNegocio.Update();
                 ActualizarPrestamos();
             } else
             {
@@ -189,7 +189,8 @@ namespace Biblioteca.UI
         private void button1_Click(object sender, EventArgs e)
         {
             Prestamo prestamo = (Prestamo)listBox1.SelectedItem;
-            MessageBox.Show( prestamoNegocio.DevolverPrestamo(prestamo));
+            prestamoNegocio.DevolverPrestamo(prestamo);
+            prestamoNegocio.Update();
             ActualizarPrestamos();
         }
 
@@ -207,6 +208,7 @@ namespace Biblioteca.UI
             {
                 Prestamo prestamo = (Prestamo)listBox1.SelectedItem;
                 prestamoNegocio.BorrarPrestamo(prestamo);
+                prestamoNegocio.Update();
                 ActualizarPrestamos();
             }
             
