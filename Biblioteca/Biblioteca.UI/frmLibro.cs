@@ -150,12 +150,26 @@ namespace Biblioteca.UI
 
         private void txtEdicion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar);
+            if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
 
         private void txtPaginas_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar);
+            if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -180,6 +194,11 @@ namespace Biblioteca.UI
             {
                 MessageBox.Show("Cancela2");
             }
+        }
+
+        private void frmLibro_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

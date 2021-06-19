@@ -30,9 +30,16 @@ namespace Biblioteca.Negocio
 
         public string InsertarCliente(int dni, string nombre, string apellido, string direccion, string email, string telefono, DateTime fechaNacimiento)
         {
-            Cliente cliente = new Cliente(dni, nombre, apellido, direccion, email, telefono, fechaNacimiento, DateTime.Today, true);
-            TransactionResult tr = ClienteMapper.Insertar(cliente);
-            return tr.ToString();
+            if (dni > 0 && nombre != "" && apellido != "" && direccion != "" && email != "" && telefono != "")
+            {
+                Cliente cliente = new Cliente(dni, nombre, apellido, direccion, email, telefono, fechaNacimiento, DateTime.Today, true);
+                TransactionResult tr = ClienteMapper.Insertar(cliente);
+                return tr.ToString();
+            }
+            else
+            {
+                throw new Exception("Hay campos vacíos");
+            }
         }
 
         public string BorrarCliente(Cliente cliente)
