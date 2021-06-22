@@ -16,11 +16,32 @@ namespace Biblioteca.Entidades
         private DateTime fechaNacimiento;
 
         [DataMember(Name = "nombre")]
-        public string Nombre { get => nombre; set => nombre = value; }
+        public string Nombre 
+        {
+            get
+            {
+                if(this.nombre == null)
+                {
+                    return "";
+                } return this.nombre;
+            } 
+            set => nombre = value;
+        }
 
         [DataMember(Name = "apellido")]
-        public string Apellido { get => apellido; set => apellido = value; }
-        
+        public string Apellido
+        {
+            get
+            {
+                if (this.apellido == null)
+                {
+                    return "";
+                }
+                return this.apellido;
+            }
+            set => apellido = value;
+        }
+
         [DataMember(Name = "DNI")]
         public int Dni { get => dni; set => dni = value; }
 
