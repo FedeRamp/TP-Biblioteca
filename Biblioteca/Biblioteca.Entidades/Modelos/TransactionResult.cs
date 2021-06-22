@@ -19,7 +19,7 @@ namespace Biblioteca.Entidades.Modelos
 
         public override string ToString()
         {
-            string b = IsOk ? "Ok" : "Err";
+            string b = IsOk ? "Operación exitosa." : "Error";
             return $"{b} - {Id} - {Error}";
         }
     }

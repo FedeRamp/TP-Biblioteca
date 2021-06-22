@@ -41,7 +41,14 @@ namespace Biblioteca.Negocio
         {
             Prestamo prestamo = new Prestamo(idCliente, idEjemplar, plazo, true, DateTime.Today, DateTime.Today.AddDays(plazo));
             TransactionResult tr = PrestamoMapper.Insertar(prestamo);
-            return tr.ToString();
+            if (tr.IsOk)
+            {
+                return "Exito";
+            }
+            else
+            {
+                return tr.ToString();
+            }
         }
 
         public string DevolverPrestamo(Prestamo prestamo)

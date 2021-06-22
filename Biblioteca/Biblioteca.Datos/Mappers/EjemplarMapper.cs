@@ -18,11 +18,20 @@ namespace Biblioteca.Datos.Mappers
             List<Ejemplar> resultado = MapList(json2);
             return resultado;
         }
+        static public List<Ejemplar> TraerPorId(int idLibro)
+        {
+            string json2 = WebHelper.Get($"Biblioteca/Ejemplares/{idLibro}");
+            List<Ejemplar> resultado = MapList(json2);
+            return resultado;
+        }
+
+
         static private List<Ejemplar> MapList(string json)
         {
             List<Ejemplar> lst = JsonConvert.DeserializeObject<List<Ejemplar>>(json);
             return lst;
         }
+
         static public TransactionResult Insertar(Ejemplar ejemplar)
         {
             NameValueCollection obj = ReverseMap(ejemplar);//Convierte el prestamo en un NVC
@@ -41,7 +50,6 @@ namespace Biblioteca.Datos.Mappers
             n.Add("precio", ejemplar.Precio.ToString("0.00"));
             n.Add("fechaAlta", ejemplar.FechaAlta.ToString("dd-MM-yyyy"));
             n.Add("id", "0");
-
 
             return n;
         }

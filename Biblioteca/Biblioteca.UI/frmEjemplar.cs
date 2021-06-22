@@ -134,7 +134,7 @@ namespace Biblioteca.UI
 
         private void frmEjemplar_Load(object sender, EventArgs e)
         {
-            libros = libroNegocio.traerTodos(); //CORROBORAR EL ACCESO A LA LISTA.
+            libros = libroNegocio.traerTodos; //CORROBORAR EL ACCESO A LA LISTA.
         }
 
         private void btnBusquedaAvanzadaIngresar_Click(object sender, EventArgs e)

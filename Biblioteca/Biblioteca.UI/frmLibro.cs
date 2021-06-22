@@ -1,4 +1,5 @@
-﻿using Biblioteca.Entidades.Modelos;
+﻿using Biblioteca.Entidades;
+using Biblioteca.Entidades.Modelos;
 using Biblioteca.Negocio;
 using Biblioteca.UI.ComponentesCustom;
 using System;
@@ -96,7 +97,7 @@ namespace Biblioteca.UI
                 panelConsultar.Visible = true;
                 consultarExpandido = true;
                 this.lstListaLibros.DataSource = null;
-                this.lstListaLibros.DataSource = libroNegocio.traerTodos();
+                this.lstListaLibros.DataSource = libroNegocio.traerTodos;
             }
             catch (Exception ex)
             {
@@ -169,7 +170,7 @@ namespace Biblioteca.UI
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             this.lstListaLibros.DataSource = null;
-            this.lstListaLibros.DataSource = libroNegocio.traerTodos();
+            this.lstListaLibros.DataSource = libroNegocio.traerTodos;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -177,22 +178,30 @@ namespace Biblioteca.UI
 
         }
 
-        private void btnBorrar_Click(object sender, EventArgs e)
-        {
-            ConfirmDelete confirm = new ConfirmDelete();
-            confirm.ShowDialog();
-            if(confirm.DialogResult == DialogResult.OK)
-            {
-                MessageBox.Show("Borrra3");
-            } else if(confirm.DialogResult == DialogResult.Cancel)
-            {
-                MessageBox.Show("Cancela2");
-            }
-        }
 
         private void frmLibro_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnMasInfo_Click(object sender, EventArgs e)
+        {
+            Libro libroElegido = (Libro)lstListaLibros.SelectedItem;
+            string mensaje = "";
+            List<Ejemplar> ejemplares = this.ejemplarNegocio.TraerPorId(libroElegido.Id);
+            if (ejemplares.Count == 0)
+            {
+                mensaje = "No hay ejemplares de ese libro";
+            }
+            else
+            {
+                foreach (Ejemplar ejemplar in ejemplares)
+                {
+                    mensaje += (ejemplar.ToString() + "\n");
+                }
+            } 
+            
+            MessageBox.Show(mensaje);
         }
     }
 }

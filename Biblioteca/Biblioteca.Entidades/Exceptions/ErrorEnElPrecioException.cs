@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Entidades.exceptions
 {
-    public class LibroNotFoundException : Exception
+    public class ErrorEnElPrecioException : Exception
     {
         string _message;
 
-        public LibroNotFoundException(string msg) : base()
+        public ErrorEnElPrecioException(string msg) : base()
         {
             _message = msg;
         }

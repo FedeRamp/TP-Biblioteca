@@ -47,6 +47,7 @@
     <Compile Include="Dominio\Libro.cs" />
     <Compile Include="Dominio\Persona.cs" />
     <Compile Include="Dominio\Prestamo.cs" />
+    <Compile Include="Exceptions\ErrorEnElPrecioException.cs" />
     <Compile Include="Exceptions\LibroNotFoundException.cs" />
     <Compile Include="Modelos\TransactionResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

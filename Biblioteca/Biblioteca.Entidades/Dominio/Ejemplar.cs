@@ -39,6 +39,7 @@ namespace Biblioteca.Entidades
         public DateTime FechaAlta { get => fechaAlta; set => fechaAlta = value; }
         [DataMember(Name = "id")]
         public int Id { get => id; set => id = value; }
+        public string NombreLibro { get => nombreLibro; set => nombreLibro = value; }
 
         public override string ToString()
         {
@@ -47,8 +48,8 @@ namespace Biblioteca.Entidades
 
         public string InfoCompleta()
         {
-            return $"{this.id}) {this.nombreLibro}(id: {this.idLibro}) ${this.precio}\n" +
-                $"{this.observaciones}\nAlta: {this.fechaAlta}";
+            return $"{this.id})\n\n{this.nombreLibro}\n\n(id: {this.idLibro})\n\nPrecio: ${this.precio}\n\n" +
+                $"{this.observaciones}\n\nAlta: {this.fechaAlta}";
         }
     }
 }
