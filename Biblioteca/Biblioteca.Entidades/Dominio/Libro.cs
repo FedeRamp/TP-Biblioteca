@@ -53,10 +53,20 @@ namespace Biblioteca.Entidades
             return $"{this.id}) {this.titulo} por {this.autor} {this.edicion}ed. Editorial {this.editorial}";
         }
 
-        public string InfoCompleta()
+        public string InfoCompleta() //TIENE SENTIDO QUE ESTEN AMBOS?
         {
             return $"{this.id}) {this.titulo} por {this.autor} {this.edicion}ed. Editorial {this.editorial}" +
                 $"{this.paginas} pags.\nTema: {this.tema}";
+        }
+        public string InfoCompletaLabel() 
+        {
+            return $"Codigo: {Id}" + "\n" + "\n" + "\n"
+                    + $"Título: {Titulo}" + "\n" + "\n"
+                    + $"Autor: {Autor}" + "\n" + "\n"
+                    + $"Editorial: {Editorial}" + "\n" + "\n"
+                    + $"Edición: {Edicion}" + "\n" + "\n"
+                    + $"Tema: {Tema}" + "\n" + "\n"
+                    + $"Paginas: {Paginas}" + "\n" + "\n";
         }
     }
 }

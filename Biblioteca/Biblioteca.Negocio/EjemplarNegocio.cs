@@ -11,7 +11,7 @@ namespace Biblioteca.Negocio
 {
     public class EjemplarNegocio
     {
-        private List<Ejemplar> ejemplares;
+        private List<Ejemplar> ejemplares = new List<Ejemplar>();
 
 
         public EjemplarNegocio()
@@ -32,7 +32,10 @@ namespace Biblioteca.Negocio
             return tr.ToString();
 
         }
-
+        public List<Ejemplar> TraerPorId(int idLibro)
+        {
+            return EjemplarMapper.TraerPorId(idLibro);
+        }
         public List<Ejemplar> Traer() 
         {
             return ejemplares;
