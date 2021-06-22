@@ -18,26 +18,23 @@ namespace Biblioteca.Datos.Mappers
             List<Ejemplar> resultado = MapList(json2);
             return resultado;
         }
-        static public Ejemplar TraerEjemplar(int idLibro)
+        static public List<Ejemplar> TraerPorId(int idLibro)
         {
             string json2 = WebHelper.Get($"Biblioteca/Ejemplares/{idLibro}");
-            Ejemplar resultado = MapObject(json2);
+            List<Ejemplar> resultado = MapList(json2);
             return resultado;
         }
+
+
         static private List<Ejemplar> MapList(string json)
         {
             List<Ejemplar> lst = JsonConvert.DeserializeObject<List<Ejemplar>>(json);
             return lst;
         }
-        static private Ejemplar MapObject(string json)
-        {
-            Ejemplar ej = JsonConvert.DeserializeObject<Ejemplar>(json);
-            return ej;
-        }
 
         static public TransactionResult Insertar(Ejemplar ejemplar)
         {
-            NameValueCollection obj = ReverseMap(ejemplar);//Convierte el ejemplar en un NVC
+            NameValueCollection obj = ReverseMap(ejemplar);//Convierte el prestamo en un NVC
 
             string json = WebHelper.Post("Biblioteca/Ejemplares", obj);//Devuelve el texto del json del resultado de la operacion
 
@@ -45,15 +42,15 @@ namespace Biblioteca.Datos.Mappers
             //Devolvemos el objeto TransactionResult
             return lst;
         }
-
         static private NameValueCollection ReverseMap(Ejemplar ejemplar)
         {
             NameValueCollection n = new NameValueCollection();
             n.Add("idLibro", ejemplar.IdLibro.ToString());
-            n.Add("Observaciones", ejemplar.Observaciones);
-            n.Add("Precio", ejemplar.Precio.ToString());
-            n.Add("FechaAlta", ejemplar.FechaAlta.ToString());
-            n.Add("id", ejemplar.Id.ToString());
+            n.Add("observaciones", ejemplar.Observaciones.ToString());
+            n.Add("precio", ejemplar.Precio.ToString("0.00"));
+            n.Add("fechaAlta", ejemplar.FechaAlta.ToString("dd-MM-yyyy"));
+            n.Add("id", "0");
+
             return n;
         }
     }

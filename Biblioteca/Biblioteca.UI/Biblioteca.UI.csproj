@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmInicial.cs">
+    <Compile Include="ComponentesCustom\ConfirmDelete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInicial.Designer.cs">
-      <DependentUpon>frmInicial.cs</DependentUpon>
+    <Compile Include="ComponentesCustom\ConfirmDelete.Designer.cs">
+      <DependentUpon>ConfirmDelete.cs</DependentUpon>
     </Compile>
     <Compile Include="frmBuscar.cs">
       <SubType>Form</SubType>
@@ -88,10 +88,16 @@
     <Compile Include="frmReportes.Designer.cs">
       <DependentUpon>frmReportes.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoadingPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingPage.Designer.cs">
+      <DependentUpon>LoadingPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmInicial.resx">
-      <DependentUpon>frmInicial.cs</DependentUpon>
+    <EmbeddedResource Include="ComponentesCustom\ConfirmDelete.resx">
+      <DependentUpon>ConfirmDelete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscar.resx">
       <DependentUpon>frmBuscar.cs</DependentUpon>
@@ -111,20 +117,23 @@
     <EmbeddedResource Include="frmReportes.resx">
       <DependentUpon>frmReportes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoadingPage.resx">
+      <DependentUpon>LoadingPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -143,6 +152,18 @@
       <Project>{d49a37b6-9040-42d9-8ab8-926c0e463be5}</Project>
       <Name>Biblioteca.Negocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh icon icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alerta icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

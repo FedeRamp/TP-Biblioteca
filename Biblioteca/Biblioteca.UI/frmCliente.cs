@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Biblioteca.Entidades;
+using Biblioteca.Negocio;
+using Biblioteca.UI.ComponentesCustom;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,37 +15,48 @@ namespace Biblioteca.UI
 {
     public partial class frmCliente : Form
     {
-        private bool ingresarExpandido = false;
-        private bool consultarExpandido = true;
-        public frmCliente()
+        private bool ingresarExpandido;
+        private bool consultarExpandido;
+        private ClienteNegocio clienteNegocio;
+        private EjemplarNegocio ejemplarNegocio;
+        private PrestamoNegocio prestamoNegocio;
+        private LibroNegocio libroNegocio;
+
+        public frmCliente(ClienteNegocio clienteNegocio, EjemplarNegocio ejemplarNegocio, PrestamoNegocio prestamoNegocio, LibroNegocio libroNegocio)
         {
             InitializeComponent();
+            ingresarExpandido = false;
+            consultarExpandido = false;
+            this.clienteNegocio = clienteNegocio;
+            this.ejemplarNegocio = ejemplarNegocio;
+            this.prestamoNegocio = prestamoNegocio;
+            this.libroNegocio = libroNegocio;
         }
         //***CONTROLES NAVEGACION***//
         private void navLibro_Click(object sender, EventArgs e)
         {
-            frmLibro frmLib = new frmLibro();
+            frmLibro frmLib = new frmLibro(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmLib.Show();
             this.Hide();
         }
 
         private void navEjemplar_Click(object sender, EventArgs e)
         {
-            frmEjemplar frmEjem = new frmEjemplar();
+            frmEjemplar frmEjem = new frmEjemplar(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmEjem.Show();
             this.Hide();
         }
 
         private void navPrestamo_Click(object sender, EventArgs e)
         {
-            frmPrestamo frmPrest = new frmPrestamo();
+            frmPrestamo frmPrest = new frmPrestamo(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmPrest.Show();
             this.Hide();
         }
 
         private void navReportes_Click(object sender, EventArgs e)
         {
-            frmReportes frmRep = new frmReportes();
+            frmReportes frmRep = new frmReportes(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmRep.Show();
             this.Hide();
         }                    
@@ -110,7 +124,57 @@ namespace Biblioteca.UI
 
         private void frmCliente_Load(object sender, EventArgs e)
         {
+            IniciarClientes();
+        }
 
+        private void IniciarClientes()
+        {
+            comboBox1.DataSource = null;
+            comboBox1.DataSource = clienteNegocio.Traer();
+        }
+
+        private void ActualizarClientes()
+        {
+            clienteNegocio.Update();
+            comboBox1.DataSource = clienteNegocio.Traer();
+        }
+
+        private void ActualizarPrestamos(Cliente cliente)
+        {
+            listBox1.DataSource = prestamoNegocio.PrestamosPorCliente(cliente.Id);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBox1.DataSource != null)
+            {
+                Cliente cliente = (Cliente)comboBox1.SelectedItem;
+                ActualizarPrestamos(cliente);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = (Cliente)comboBox1.SelectedItem;
+            BorrarCliente(cliente);
+        }
+
+        private void BorrarCliente(Cliente cliente)
+        {
+            ConfirmDelete confirm = new ConfirmDelete();
+            confirm.ShowDialog();
+            if (confirm.DialogResult == DialogResult.OK)
+            {
+                clienteNegocio.BorrarCliente(cliente);
+                ActualizarClientes();
+            }
+
+        }
+
+        private void btnMasInfo_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = (Cliente)comboBox1.SelectedItem;
+            MessageBox.Show(cliente.InfoCompleta());
         }
     }
 }

@@ -55,13 +55,11 @@ namespace Biblioteca.UI
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.panelConsultar = new System.Windows.Forms.Panel();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnMasInfo = new System.Windows.Forms.Button();
-            this.btnBorrar = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.lblResultado = new System.Windows.Forms.Label();
             this.lblId = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             this.panelIngresar.SuspendLayout();
             this.panelConsultar.SuspendLayout();
@@ -322,13 +320,11 @@ namespace Biblioteca.UI
             // 
             // panelConsultar
             // 
-            this.panelConsultar.Controls.Add(this.btnBuscar);
             this.panelConsultar.Controls.Add(this.btnMasInfo);
-            this.panelConsultar.Controls.Add(this.btnBorrar);
+            this.panelConsultar.Controls.Add(this.comboBox1);
+            this.panelConsultar.Controls.Add(this.button2);
             this.panelConsultar.Controls.Add(this.listBox1);
-            this.panelConsultar.Controls.Add(this.lblResultado);
             this.panelConsultar.Controls.Add(this.lblId);
-            this.panelConsultar.Controls.Add(this.textBox1);
             this.panelConsultar.Location = new System.Drawing.Point(21, 224);
             this.panelConsultar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelConsultar.Name = "panelConsultar";
@@ -336,63 +332,56 @@ namespace Biblioteca.UI
             this.panelConsultar.TabIndex = 4;
             this.panelConsultar.Visible = false;
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(171, 37);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(87, 28);
-            this.btnBuscar.TabIndex = 13;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
             // btnMasInfo
             // 
-            this.btnMasInfo.BackColor = System.Drawing.Color.Cyan;
+            this.btnMasInfo.BackColor = System.Drawing.Color.Aquamarine;
             this.btnMasInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMasInfo.Location = new System.Drawing.Point(263, 250);
+            this.btnMasInfo.Location = new System.Drawing.Point(29, 234);
             this.btnMasInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMasInfo.Name = "btnMasInfo";
-            this.btnMasInfo.Size = new System.Drawing.Size(120, 57);
-            this.btnMasInfo.TabIndex = 12;
-            this.btnMasInfo.Text = "Mas Informacion";
+            this.btnMasInfo.Size = new System.Drawing.Size(108, 46);
+            this.btnMasInfo.TabIndex = 22;
+            this.btnMasInfo.Text = "Más Informacion";
             this.btnMasInfo.UseVisualStyleBackColor = false;
+            this.btnMasInfo.Click += new System.EventHandler(this.btnMasInfo_Click);
             // 
-            // btnBorrar
+            // comboBox1
             // 
-            this.btnBorrar.BackColor = System.Drawing.Color.Red;
-            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBorrar.Location = new System.Drawing.Point(29, 250);
-            this.btnBorrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(120, 57);
-            this.btnBorrar.TabIndex = 11;
-            this.btnBorrar.Text = "Eliminar";
-            this.btnBorrar.UseVisualStyleBackColor = false;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(29, 39);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(196, 24);
+            this.comboBox1.TabIndex = 20;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.Red;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(236, 242);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(147, 28);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "Eliminar cliente";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Items.AddRange(new object[] {
-            "ID 23, Maria Josefa",
-            "ID 234, Juan Domingo",
-            "ID 233, Mario Gonzales"});
             this.listBox1.Location = new System.Drawing.Point(29, 94);
             this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(352, 132);
             this.listBox1.TabIndex = 10;
-            // 
-            // lblResultado
-            // 
-            this.lblResultado.AutoSize = true;
-            this.lblResultado.Location = new System.Drawing.Point(112, 74);
-            this.lblResultado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblResultado.Name = "lblResultado";
-            this.lblResultado.Size = new System.Drawing.Size(175, 17);
-            this.lblResultado.TabIndex = 9;
-            this.lblResultado.Text = "Resultado de la Busqueda";
             // 
             // lblId
             // 
@@ -400,17 +389,9 @@ namespace Biblioteca.UI
             this.lblId.Location = new System.Drawing.Point(25, 20);
             this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(89, 17);
+            this.lblId.Size = new System.Drawing.Size(51, 17);
             this.lblId.TabIndex = 8;
-            this.lblId.Text = "id del Cliente";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(29, 39);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 22);
-            this.textBox1.TabIndex = 7;
+            this.lblId.Text = "Cliente";
             // 
             // frmCliente
             // 
@@ -425,7 +406,8 @@ namespace Biblioteca.UI
             this.Controls.Add(this.panelIngresar);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmCliente";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Biblioteca";
             this.Load += new System.EventHandler(this.frmCliente_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -461,17 +443,15 @@ namespace Biblioteca.UI
         private System.Windows.Forms.Button btnListo;
         private System.Windows.Forms.Panel panelConsultar;
         private System.Windows.Forms.Label lblId;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button btnMasInfo;
-        private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label lblResultado;
         private System.Windows.Forms.ToolStripButton navCliente;
         private System.Windows.Forms.ToolStripButton navLibro;
         private System.Windows.Forms.ToolStripButton navEjemplar;
         private System.Windows.Forms.ToolStripButton navPrestamo;
         private System.Windows.Forms.ToolStripButton navReportes;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button btnMasInfo;
     }
 }
 

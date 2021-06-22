@@ -16,7 +16,9 @@ namespace Biblioteca.UI
     {
         List<Libro> aMostrar;
         List<Libro> libros = new List<Libro>();
-        LibroNegocio libroNegocio = new LibroNegocio();
+        TextBox textbox;
+        internal TextBox Textbox { get => textbox; set => textbox = value; }
+
         public frmBuscar()
         {
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace Biblioteca.UI
         private void frmBuscar_Load(object sender, EventArgs e)
         {
             libros = ((frmEjemplar)Owner).Libros;
-            lstBuscar.DataSource = libros;
+            lstBuscar.DataSource = libros;            
         }
 
         private void MostrarLista()
@@ -35,7 +37,7 @@ namespace Biblioteca.UI
             bool editorialChecked = false;
             aMostrar = new List<Libro>();
 
-            
+
 
             foreach (var item in clbBuscarPor.CheckedItems)
             {
@@ -57,7 +59,7 @@ namespace Biblioteca.UI
                 foreach (Libro l in libros)
                 {
                     bool agregado = false;
-                
+
                     if (tituloChecked)
                     {
                         if (l.Titulo != null && l.Titulo.ToUpper().Contains(tbBuscar.Text.ToUpper()))
@@ -99,7 +101,6 @@ namespace Biblioteca.UI
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -135,7 +136,7 @@ namespace Biblioteca.UI
         private void EnviarCodigo()
         {
             Libro libro = (Libro)lstBuscar.SelectedItem;
-            ((frmEjemplar)Owner).TraerCodigo(libro.Id);
+            ((frmEjemplar)Owner).TraerCodigo(libro.Id, textbox);
 
             Owner.Show();
             this.Close();
@@ -143,22 +144,16 @@ namespace Biblioteca.UI
 
         private void lstBuscar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lstBuscar.SelectedIndex > -1)
-            {
-                MostrarDatos();
-            }
+            MostrarDatos();
         }
 
         private void MostrarDatos()
         {
-            Libro libro = (Libro)lstBuscar.SelectedItem;
-            lblDatosLibro.Text = $"Codigo: {libro.Id}" + "\n" + "\n" + "\n"
-                + $"Título: {libro.Titulo}" + "\n" + "\n"
-                + $"Autor: {libro.Autor}" + "\n" + "\n"
-                + $"Editorial: {libro.Editorial}" + "\n" + "\n"
-                + $"Edición: {libro.Edicion}" + "\n" + "\n"
-                + $"Tema: {libro.Tema}" + "\n" + "\n"
-                + $"Paginas: {libro.Paginas}" + "\n" + "\n";
+            if (lstBuscar.SelectedIndex != -1)
+            {            
+                Libro libro = (Libro)lstBuscar.SelectedItem;
+                lblDatosLibro.Text = libro.InfoCompletaLabel();
+            }
         }
     }
 }

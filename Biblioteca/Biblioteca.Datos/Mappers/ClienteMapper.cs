@@ -33,6 +33,17 @@ namespace Biblioteca.Datos.Mappers
             //Devolvemos el objeto TransactionResult
             return lst;
         }
+
+        static public TransactionResult Borrar(Cliente cliente)
+        {
+            NameValueCollection obj = ReverseMap(cliente);//Convierte el prestamo en un NVC
+
+            string json = WebHelper.Delete("cliente", obj);//Devuelve el texto del json del resultado de la operacion
+
+            TransactionResult lst = JsonConvert.DeserializeObject<TransactionResult>(json);//Convertimos el texto a un objeto
+            //Devolvemos el objeto TransactionResult
+            return lst;
+        }
         static private NameValueCollection ReverseMap(Cliente cliente)
         {
             NameValueCollection n = new NameValueCollection();

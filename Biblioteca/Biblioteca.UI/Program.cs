@@ -16,8 +16,7 @@ namespace Biblioteca.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new frmCliente());
-            Application.Run(new frmInicial());
+            Application.Run(new LoadingPage());
         }
     }
 }

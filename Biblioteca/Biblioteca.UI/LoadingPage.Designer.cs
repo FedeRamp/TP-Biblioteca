@@ -1,7 +1,7 @@
 ﻿
 namespace Biblioteca.UI
 {
-    partial class frmInicial
+    partial class LoadingPage
     {
         /// <summary>
         /// Required designer variable.
@@ -29,34 +29,36 @@ namespace Biblioteca.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnIniciar = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
-            // btnIniciar
+            // progressBar1
             // 
-            this.btnIniciar.Location = new System.Drawing.Point(120, 187);
-            this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(332, 36);
-            this.btnIniciar.TabIndex = 0;
-            this.btnIniciar.Text = "Iniciar";
-            this.btnIniciar.UseVisualStyleBackColor = true;
-            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
+            this.progressBar1.Location = new System.Drawing.Point(38, 23);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
+            this.progressBar1.MarqueeAnimationSpeed = 1000;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(485, 28);
+            this.progressBar1.TabIndex = 1;
+            this.progressBar1.UseWaitCursor = true;
             // 
-            // frmInicial
+            // LoadingPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnIniciar);
-            this.Name = "frmInicial";
-            this.Text = "FormInicial";
-            this.Load += new System.EventHandler(this.frmInicial_Load);
+            this.ClientSize = new System.Drawing.Size(558, 75);
+            this.Controls.Add(this.progressBar1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "LoadingPage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "LoadingPage";
+            this.Shown += new System.EventHandler(this.LoadingPage_Shown);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnIniciar;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Biblioteca.Entidades;
 using Biblioteca.Negocio;
+using Biblioteca.UI.ComponentesCustom;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,39 +20,43 @@ namespace Biblioteca.UI
         private ClienteNegocio clienteNegocio;
         private EjemplarNegocio ejemplarNegocio;
         private PrestamoNegocio prestamoNegocio;
+        private LibroNegocio libroNegocio;
 
-        public frmPrestamo()
+        public frmPrestamo(ClienteNegocio clienteNegocio, EjemplarNegocio ejemplarNegocio, PrestamoNegocio prestamoNegocio, LibroNegocio libroNegocio)
         {
             InitializeComponent();
-            clienteNegocio = new ClienteNegocio();
-            ejemplarNegocio = new EjemplarNegocio();
-            prestamoNegocio = new PrestamoNegocio();
+            ingresarExpandido = false;
+            consultarExpandido = false;
+            this.clienteNegocio = clienteNegocio;
+            this.ejemplarNegocio = ejemplarNegocio;
+            this.prestamoNegocio = prestamoNegocio;
+            this.libroNegocio = libroNegocio;
         }
 
         private void navLibro_Click(object sender, EventArgs e)
         {
-            frmLibro frmLib = new frmLibro();
+            frmLibro frmLib = new frmLibro(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmLib.Show();
             this.Hide();
         }
 
         private void navCliente_Click(object sender, EventArgs e)
         {
-            frmCliente frmClient = new frmCliente();
+            frmCliente frmClient = new frmCliente(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmClient.Show();
             this.Hide();
         }
 
         private void navEjemplar_Click(object sender, EventArgs e)
         {
-            frmEjemplar frmEjem = new frmEjemplar();
+            frmEjemplar frmEjem = new frmEjemplar(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmEjem.Show();
             this.Hide();
         }
 
         private void navReportes_Click(object sender, EventArgs e)
         {
-            frmReportes frmRep = new frmReportes();
+            frmReportes frmRep = new frmReportes(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmRep.Show();
             this.Hide();
         }
@@ -127,8 +132,6 @@ namespace Biblioteca.UI
         {
             IniciarClientes();
             IniciarEjemplares();
-            ingresarExpandido = false;
-            consultarExpandido = false;
         }
 
         private void IniciarClientes()
@@ -148,7 +151,6 @@ namespace Biblioteca.UI
 
         private void ActualizarPrestamos()
         {
-            prestamoNegocio.Update();
             Cliente cliente = (Cliente)comboBox3.SelectedItem;
             listBox1.DataSource = prestamoNegocio.PrestamosPorCliente(cliente.Id);
         }
@@ -161,6 +163,7 @@ namespace Biblioteca.UI
                 Cliente cliente = (Cliente)comboBox1.SelectedItem;
                 Ejemplar ejemplar = (Ejemplar)comboBox2.SelectedItem;
                 prestamoNegocio.InsertarPrestamo(cliente.Id, ejemplar.Id, Convert.ToInt32(txtPlazo.Text));
+                prestamoNegocio.Update();
                 ActualizarPrestamos();
             } else
             {
@@ -186,7 +189,8 @@ namespace Biblioteca.UI
         private void button1_Click(object sender, EventArgs e)
         {
             Prestamo prestamo = (Prestamo)listBox1.SelectedItem;
-            MessageBox.Show( prestamoNegocio.DevolverPrestamo(prestamo));
+            prestamoNegocio.DevolverPrestamo(prestamo);
+            prestamoNegocio.Update();
             ActualizarPrestamos();
         }
 
@@ -194,6 +198,20 @@ namespace Biblioteca.UI
         {
             Prestamo prestamo = (Prestamo)listBox1.SelectedItem;
             MessageBox.Show(prestamo.InfoCompleta());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ConfirmDelete confirm = new ConfirmDelete();
+            confirm.ShowDialog();
+            if (confirm.DialogResult == DialogResult.OK)
+            {
+                Prestamo prestamo = (Prestamo)listBox1.SelectedItem;
+                prestamoNegocio.BorrarPrestamo(prestamo);
+                prestamoNegocio.Update();
+                ActualizarPrestamos();
+            }
+            
         }
     }
 }

@@ -187,38 +187,45 @@ namespace Biblioteca.UI
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(391, 250);
+            this.btnActualizar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.Image")));
+            this.btnActualizar.Location = new System.Drawing.Point(345, 58);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(112, 57);
+            this.btnActualizar.Size = new System.Drawing.Size(37, 28);
             this.btnActualizar.TabIndex = 13;
-            this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnMasInfo
             // 
-            this.btnMasInfo.BackColor = System.Drawing.Color.Cyan;
-            this.btnMasInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMasInfo.Location = new System.Drawing.Point(213, 250);
+            this.btnMasInfo.BackColor = System.Drawing.Color.Aquamarine;
+            this.btnMasInfo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMasInfo.Location = new System.Drawing.Point(151, 234);
             this.btnMasInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMasInfo.Name = "btnMasInfo";
-            this.btnMasInfo.Size = new System.Drawing.Size(120, 57);
+            this.btnMasInfo.Size = new System.Drawing.Size(116, 57);
             this.btnMasInfo.TabIndex = 12;
             this.btnMasInfo.Text = "Mas Informacion";
             this.btnMasInfo.UseVisualStyleBackColor = false;
             // 
             // btnBorrar
             // 
-            this.btnBorrar.BackColor = System.Drawing.Color.Red;
+            this.btnBorrar.BackColor = System.Drawing.Color.White;
+            this.btnBorrar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBorrar.Location = new System.Drawing.Point(29, 250);
+            this.btnBorrar.ForeColor = System.Drawing.Color.Red;
+            this.btnBorrar.Image = ((System.Drawing.Image)(resources.GetObject("btnBorrar.Image")));
+            this.btnBorrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBorrar.Location = new System.Drawing.Point(391, 198);
             this.btnBorrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(120, 57);
+            this.btnBorrar.Size = new System.Drawing.Size(129, 28);
             this.btnBorrar.TabIndex = 11;
             this.btnBorrar.Text = "Eliminar";
             this.btnBorrar.UseVisualStyleBackColor = false;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // lstListaLibros
             // 
@@ -426,7 +433,8 @@ namespace Biblioteca.UI
             this.Controls.Add(this.toolStrip1);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmLibro";
-            this.Text = "Libro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Biblioteca";
             this.Load += new System.EventHandler(this.frmLibro_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
