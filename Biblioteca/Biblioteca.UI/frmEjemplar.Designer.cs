@@ -444,6 +444,7 @@ namespace Biblioteca.UI
             this.Controls.Add(this.lblConsultar);
             this.Controls.Add(this.lblIngresar);
             this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmEjemplar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

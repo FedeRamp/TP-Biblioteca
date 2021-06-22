@@ -29,6 +29,7 @@ namespace Biblioteca.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBuscar));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblDatosLibro = new System.Windows.Forms.Label();
             this.lblEncabezado = new System.Windows.Forms.Label();
@@ -152,8 +153,9 @@ namespace Biblioteca.UI
             this.Controls.Add(this.lstBuscar);
             this.Controls.Add(this.tbBuscar);
             this.Controls.Add(this.clbBuscarPor);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBuscar";
-            this.Text = "frmBuscar";
+            this.Text = "Buscar";
             this.Load += new System.EventHandler(this.frmBuscar_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
