@@ -14,10 +14,23 @@ namespace Biblioteca.Negocio
     public class LibroNegocio
     {
         LibroMapper _libroMapper;
+        List<Libro> libros;
 
         public LibroNegocio()
         {
             _libroMapper = new LibroMapper();
+            libros = _libroMapper.traerTodos();
+        }
+        public List<Libro> traerTodos
+        {
+            get
+            {
+                return this.libros;
+            }
+            set
+            {
+                libros = value;
+            }
         }
 
         public TransactionResult insertarLibro(string edicion, string paginas, string titulo, string autor, string editorial, string tema)
@@ -43,18 +56,7 @@ namespace Biblioteca.Negocio
 
         }
 
-        public List<Libro> traerTodos()
-        {
-            try
-            {
-                return _libroMapper.traerTodos();
 
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
 
     }
 }
