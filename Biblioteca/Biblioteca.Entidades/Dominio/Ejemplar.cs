@@ -39,6 +39,7 @@ namespace Biblioteca.Entidades
         public DateTime FechaAlta { get => fechaAlta; set => fechaAlta = value; }
         [DataMember(Name = "id")]
         public int Id { get => id; set => id = value; }
+        public string NombreLibro { get => nombreLibro; set => nombreLibro = value; }
 
         public override string ToString()
         {

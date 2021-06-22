@@ -18,6 +18,12 @@ namespace Biblioteca.Datos.Mappers
             List<Ejemplar> resultado = MapList(json2);
             return resultado;
         }
+        static public List<Ejemplar> TraerPorId(int idLibro)
+        {
+            string json2 = WebHelper.Get($"Biblioteca/Ejemplares/{idLibro}");
+            List<Ejemplar> resultado = MapList(json2);
+            return resultado;
+        }
         static private List<Ejemplar> MapList(string json)
         {
             List<Ejemplar> lst = JsonConvert.DeserializeObject<List<Ejemplar>>(json);

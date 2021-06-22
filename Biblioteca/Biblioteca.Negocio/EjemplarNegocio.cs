@@ -33,6 +33,10 @@ namespace Biblioteca.Negocio
 
         }
 
+        public List<Ejemplar> TraerPorId(int idLibro)
+        {
+            return EjemplarMapper.TraerPorId(idLibro);
+        }
         public List<Ejemplar> Traer() 
         {
             return ejemplares;

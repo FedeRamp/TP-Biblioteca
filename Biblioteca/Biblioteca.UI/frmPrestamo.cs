@@ -153,7 +153,12 @@ namespace Biblioteca.UI
             Cliente cliente = (Cliente)comboBox3.SelectedItem;
             listBox1.DataSource = prestamoNegocio.PrestamosPorCliente(cliente.Id);
         }
-
+        private void LimpiarIngresar()
+        {
+            this.txtPlazo.Text = "";
+            this.comboBox1.SelectedIndex = -1;
+            this.comboBox2.SelectedIndex = -1;
+        }
         private void btnListo_Click(object sender, EventArgs e)
         {       //Insertar nuevo Prestamo
             int plazo = 0;
@@ -162,7 +167,10 @@ namespace Biblioteca.UI
                 Cliente cliente = (Cliente)comboBox1.SelectedItem;
                 Ejemplar ejemplar = (Ejemplar)comboBox2.SelectedItem;
                 prestamoNegocio.InsertarPrestamo(cliente.Id, ejemplar.Id, Convert.ToInt32(txtPlazo.Text));
+                MessageBox.Show(prestamoNegocio.InsertarPrestamo(cliente.Id, ejemplar.Id, Convert.ToInt32(txtPlazo.Text)));
+                prestamoNegocio.Update();
                 ActualizarPrestamos();
+                LimpiarIngresar();
             } else
             {
                 MessageBox.Show("Hay campos obligatorios sin rellenar o llenos incorrectamente");

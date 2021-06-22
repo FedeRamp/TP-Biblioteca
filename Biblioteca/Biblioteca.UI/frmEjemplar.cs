@@ -1,4 +1,5 @@
-﻿using Biblioteca.UI.ComponentesCustom;
+﻿using Biblioteca.Entidades;
+using Biblioteca.UI.ComponentesCustom;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -109,18 +110,301 @@ namespace Biblioteca.UI
             ingresarExpandido = false;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        internal void TraerCodigo(int idLibro, TextBox textbox)
         {
-            ConfirmDelete confirm = new ConfirmDelete();
-            confirm.ShowDialog();
-            if (confirm.DialogResult == DialogResult.OK)
+            textbox.Text = idLibro.ToString();
+        }
+
+        private void frmEjemplar_Load(object sender, EventArgs e)
+        {
+            libros = libroNegocio.traerTodos; //CORROBORAR EL ACCESO A LA LISTA.
+        }
+
+        private void btnBusquedaAvanzadaIngresar_Click(object sender, EventArgs e)
+        {
+            Form frmBusc = new frmBuscar();
+            frmBusc.Owner = this;
+            ((frmBuscar)frmBusc).Textbox = tbCodigoLibroIngresar; //TextBox a llenar con el código seleccionado.
+            frmBusc.Show();
+        }
+
+        private void tbCodigoLibroIngresar_TextChanged(object sender, EventArgs e)
+        {
+            foreach (Libro libro in libros)
             {
-                MessageBox.Show("Borrra3");
+                if (tbCodigoLibroIngresar.Text == libro.Id.ToString())
+                {
+                    lblDatosLibro.Text = libro.InfoCompletaLabel();
+                    libroEncontrado = true;
+                    break;
+                }
+                else
+                {
+                    lblDatosLibro.Text = "Libro:";
+                    libroEncontrado = false;
+                }
             }
-            else if (confirm.DialogResult == DialogResult.Cancel)
+        }
+
+
+        private void btnBusquedaAvanzadaConsultar_Click(object sender, EventArgs e)
+        {
+            Form frmBusc = new frmBuscar();
+            frmBusc.Owner = this;
+            ((frmBuscar)frmBusc).Textbox = tbCodigoLibroConsultar; //TextBox a llenar con el código seleccionado.
+            frmBusc.Show();
+        }
+
+        private void tbCodigoLibroConsultar_TextChanged(object sender, EventArgs e)
+        {
+            lstbResultado.DataSource = null;
+            ejemplaresId = new List<Ejemplar>();
+
+            foreach (Libro libro in libros)
             {
-                MessageBox.Show("Cancela2");
+                if (tbCodigoLibroConsultar.Text == libro.Id.ToString())
+                {
+                    lblTituloLibro.Text = $"Libro: {libro.Titulo}";
+                    break;
+                }
+                else
+                {
+                    lblTituloLibro.Text = "Libro: ";
+                }
             }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (tbCodigoLibroConsultar.Text != string.Empty)
+            {
+                try
+                {
+                    ejemplaresId = ejemplarNegocio.TraerPorId(Convert.ToInt32(tbCodigoLibroConsultar.Text));
+                    AsignarNombreLibro();
+                    MostrarEjemplares();
+                    if (ejemplaresId.Count == 0)
+                    {
+                        MessageBox.Show("No se han encontrado ejemplares.", "No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+        private void AsignarNombreLibro()
+        {
+            foreach (Ejemplar ej in ejemplaresId)
+            {
+                ej.NombreLibro = lblTituloLibro.Text;
+            }
+        }
+        private void MostrarEjemplares()
+        {
+            
+            if (ejemplaresId.Count > 0) 
+            {
+                if (cbDisponibles.Checked && cbNoDisponibles.Checked)
+                {
+                    lstbResultado.DataSource = null;
+                    lstbResultado.DataSource = ejemplaresId;
+                }
+                else
+                {
+                    prestamos = prestamoNegocio.ListaPrestamos();
+                    List<Ejemplar> yaPrestados = new List<Ejemplar>();
+                    List<Ejemplar> noPrestados = new List<Ejemplar>();
+                                       
+                    foreach (Ejemplar ej in ejemplaresId)
+                    {
+                        bool prestado = false;
+                        foreach (Prestamo pres in prestamos)
+                        {
+                            if (ej.Id == pres.IdEjemplar && pres.Abierto)
+                            {
+                                yaPrestados.Add(ej);
+                                prestado = true;
+                                break;
+                            }
+                        }
+                        if (!prestado)
+                        {
+                            noPrestados.Add(ej);
+                        }
+                    }
+                    
+                    if (cbDisponibles.Checked)
+                    {
+                        lstbResultado.DataSource = null;
+                        lstbResultado.DataSource = noPrestados;
+                    }
+                    if (cbNoDisponibles.Checked)
+                    {
+                        lstbResultado.DataSource = null;
+                        lstbResultado.DataSource = yaPrestados;
+                    }
+                    if (!cbDisponibles.Checked && !cbNoDisponibles.Checked)
+                    {
+                        cbDisponibles.CheckState = CheckState.Checked;
+                        cbNoDisponibles.CheckState = CheckState.Checked;                        
+                    }
+                }
+            }            
+        }
+
+        private void cbDisponibles_CheckedChanged(object sender, EventArgs e)
+        {
+            MostrarEjemplares();
+        }
+
+        private void cbNoDisponibles_CheckedChanged(object sender, EventArgs e)
+        {
+            MostrarEjemplares();
+        }
+
+        private void btnMasInfo_Click(object sender, EventArgs e)
+        {
+            try 
+            {
+                Ejemplar ejemplar = (Ejemplar)lstbResultado.SelectedItem;
+
+                string disponibilidad = MostrarDisponibilidad(ejemplar);
+
+                MessageBox.Show(ejemplar.InfoCompleta() + $"\n\nEstado: {disponibilidad}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }            
+        }
+        private string MostrarDisponibilidad(Ejemplar ejemplar)
+        {
+            prestamos = prestamoNegocio.ListaPrestamos();
+            string disponibilidad = "DISPONIBLE";
+
+            foreach (Prestamo pres in prestamos)
+            {
+                if (ejemplar.Id == pres.IdEjemplar && pres.Abierto)
+                {
+                    disponibilidad = "NO DISPONIBLE";
+                    break;
+                }
+            }
+
+            return disponibilidad;
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (tbObservaciones.Text == string.Empty || tbPrecio.Text == string.Empty || tbCodigoLibroIngresar.Text == string.Empty)
+            {
+                MessageBox.Show("Complete todos los campos.","Completar", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            }            
+            else
+            {
+                if (!libroEncontrado)
+                {
+                    MessageBox.Show("Libro no encontrado.\nIntente con un Código diferente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {   
+                    var result = MessageBox.Show("¿Confirma el alta?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            MessageBox.Show(AgregarEjemplar());
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error: " + ex.Message);
+                        }
+                    }                    
+                }               
+            }                
+        }
+        private string AgregarEjemplar()
+        {         
+          
+           int idLibro = Convert.ToInt32(tbCodigoLibroIngresar.Text);
+           string observaciones = tbObservaciones.Text;
+           double precio = ValidarPrecio();
+
+           return ejemplarNegocio.Insertar(idLibro, observaciones, precio);
+        }
+
+        private void tbCodigoLibroIngresar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void tbCodigoLibroConsultar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!tbPrecio.Text.Contains(","))
+            {
+                if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == Convert.ToChar(","))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }              
+
+            }            
+        }
+
+        private double ValidarPrecio()
+        {
+            double precio;
+            if (!Double.TryParse(tbPrecio.Text, out precio))
+            {
+                throw new ErrorEnElPrecioException("Error en el precio.");
+            }
+
+            return precio;
+        }
+
+        private void tbPrecio_Leave(object sender, EventArgs e)
+
+        private void frmEjemplar_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
