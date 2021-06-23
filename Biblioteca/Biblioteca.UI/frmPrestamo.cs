@@ -210,8 +210,19 @@ namespace Biblioteca.UI
 
         private void btnMasInfo_Click(object sender, EventArgs e)
         {
-            Prestamo prestamo = (Prestamo)listBox1.SelectedItem;
-            MessageBox.Show(prestamo.InfoCompleta());
+            try
+            {
+                Prestamo prestamo = (Prestamo)listBox1.SelectedItem;
+                if (prestamo == null)
+                {
+                    throw new Exception("La lista de prestamos se encuentra vacia, intente con otro cliente");
+                }
+                MessageBox.Show(prestamo.InfoCompleta());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

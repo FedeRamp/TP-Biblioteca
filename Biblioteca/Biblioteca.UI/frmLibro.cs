@@ -138,7 +138,10 @@ namespace Biblioteca.UI
             {
                 validar();
                 TransactionResult tr = libroNegocio.insertarLibro(txtEdicion.Text, txtPaginas.Text, txtTitulo.Text, txtAutor.Text, txtEditorial.Text, txtTema.Text);
-
+                if (tr.IsOk)
+                {
+                    MessageBox.Show(tr.ToString());
+                }
             }
             catch (Exception ex)
             {
@@ -170,7 +173,7 @@ namespace Biblioteca.UI
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             this.lstListaLibros.DataSource = null;
-            this.lstListaLibros.DataSource = libroNegocio.traerTodos;
+            this.lstListaLibros.DataSource = libroNegocio.getTodos();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -186,22 +189,19 @@ namespace Biblioteca.UI
 
         private void btnMasInfo_Click(object sender, EventArgs e)
         {
-            Libro libroElegido = (Libro)lstListaLibros.SelectedItem;
-            string mensaje = "";
-            List<Ejemplar> ejemplares = this.ejemplarNegocio.TraerPorId(libroElegido.Id);
-            if (ejemplares.Count == 0)
+            try
             {
-                mensaje = "No hay ejemplares de ese libro";
-            }
-            else
-            {
-                foreach (Ejemplar ejemplar in ejemplares)
+                Libro libroElegido = (Libro)lstListaLibros.SelectedItem;
+                if (libroElegido == null)
                 {
-                    mensaje += (ejemplar.ToString() + "\n");
+                    throw new Exception("La lista de libros se encuentra vacia");
                 }
-            } 
-            
-            MessageBox.Show(mensaje);
+                MessageBox.Show(libroElegido.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
