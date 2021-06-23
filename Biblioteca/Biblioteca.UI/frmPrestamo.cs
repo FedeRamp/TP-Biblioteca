@@ -183,7 +183,13 @@ namespace Biblioteca.UI
         private void txtPlazo_KeyPress(object sender, KeyPressEventArgs e)
         { //Handled == true ---> Cancela el KeyPress
             //El método hace que el txtBox solo capture digitos
-            e.Handled = !char.IsDigit(e.KeyChar);
+            if(char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            } else
+            {
+                e.Handled = true;
+            }
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
