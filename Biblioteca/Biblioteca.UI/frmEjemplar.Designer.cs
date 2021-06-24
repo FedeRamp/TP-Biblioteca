@@ -55,7 +55,6 @@ namespace Biblioteca.UI
             this.lblIngresar = new System.Windows.Forms.Label();
             this.panelIngresar = new System.Windows.Forms.Panel();
             this.btnBusquedaAvanzadaIngresar = new System.Windows.Forms.Button();
-            this.lblDatosLibro = new System.Windows.Forms.Label();
             this.btnListo = new System.Windows.Forms.Button();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.lblObservaciones = new System.Windows.Forms.Label();
@@ -63,6 +62,7 @@ namespace Biblioteca.UI
             this.tbPrecio = new System.Windows.Forms.TextBox();
             this.tbObservaciones = new System.Windows.Forms.TextBox();
             this.tbCodigoLibroIngresar = new System.Windows.Forms.TextBox();
+            this.lblDatosLibro = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.panelConsultar.SuspendLayout();
             this.panelIngresar.SuspendLayout();
@@ -335,6 +335,7 @@ namespace Biblioteca.UI
             this.panelIngresar.Location = new System.Drawing.Point(25, 86);
             this.panelIngresar.Name = "panelIngresar";
             this.panelIngresar.Size = new System.Drawing.Size(509, 266);
+
             this.panelIngresar.TabIndex = 9;
             this.panelIngresar.Visible = false;
             // 
@@ -423,6 +424,15 @@ namespace Biblioteca.UI
             this.tbCodigoLibroIngresar.TextChanged += new System.EventHandler(this.tbCodigoLibroIngresar_TextChanged);
             this.tbCodigoLibroIngresar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCodigoLibroIngresar_KeyPress);
             // 
+            // lblDatosLibro
+            // 
+            this.lblDatosLibro.Location = new System.Drawing.Point(178, 21);
+            this.lblDatosLibro.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDatosLibro.Name = "lblDatosLibro";
+            this.lblDatosLibro.Size = new System.Drawing.Size(306, 169);
+            this.lblDatosLibro.TabIndex = 13;
+            this.lblDatosLibro.Text = "Libro:";
+            // 
             // frmEjemplar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -467,7 +477,6 @@ namespace Biblioteca.UI
         private System.Windows.Forms.ToolStripButton navPrestamo;
         private System.Windows.Forms.ToolStripButton navReportes;
         private System.Windows.Forms.Panel panelIngresar;
-        private System.Windows.Forms.Label lblDatosLibro;
         private System.Windows.Forms.Button btnListo;
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.Label lblObservaciones;
@@ -485,5 +494,6 @@ namespace Biblioteca.UI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox cbNoDisponibles;
         private System.Windows.Forms.CheckBox cbDisponibles;
+        private System.Windows.Forms.Label lblDatosLibro;
     }
 }
