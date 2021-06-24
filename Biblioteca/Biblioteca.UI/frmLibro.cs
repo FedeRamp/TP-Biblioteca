@@ -173,7 +173,8 @@ namespace Biblioteca.UI
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             this.lstListaLibros.DataSource = null;
-            this.lstListaLibros.DataSource = libroNegocio.getTodos();
+            libroNegocio.update();
+            this.lstListaLibros.DataSource = libroNegocio.traerTodos;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
