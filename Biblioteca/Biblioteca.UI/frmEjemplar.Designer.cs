@@ -55,7 +55,6 @@ namespace Biblioteca.UI
             this.lblIngresar = new System.Windows.Forms.Label();
             this.panelIngresar = new System.Windows.Forms.Panel();
             this.btnBusquedaAvanzadaIngresar = new System.Windows.Forms.Button();
-            this.lblDatosLibro = new System.Windows.Forms.Label();
             this.btnListo = new System.Windows.Forms.Button();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.lblObservaciones = new System.Windows.Forms.Label();
@@ -63,6 +62,7 @@ namespace Biblioteca.UI
             this.tbPrecio = new System.Windows.Forms.TextBox();
             this.tbObservaciones = new System.Windows.Forms.TextBox();
             this.tbCodigoLibroIngresar = new System.Windows.Forms.TextBox();
+            this.lblDatosLibro = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.panelConsultar.SuspendLayout();
             this.panelIngresar.SuspendLayout();
@@ -84,7 +84,7 @@ namespace Biblioteca.UI
             this.navReportes});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(761, 28);
+            this.toolStrip1.Size = new System.Drawing.Size(571, 28);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -184,18 +184,18 @@ namespace Biblioteca.UI
             this.panelConsultar.Controls.Add(this.tbCodigoLibroConsultar);
             this.panelConsultar.Controls.Add(this.btnBusquedaAvanzadaConsultar);
             this.panelConsultar.Controls.Add(this.lstbResultado);
-            this.panelConsultar.Location = new System.Drawing.Point(33, 209);
-            this.panelConsultar.Margin = new System.Windows.Forms.Padding(4);
+            this.panelConsultar.Location = new System.Drawing.Point(25, 170);
             this.panelConsultar.Name = "panelConsultar";
-            this.panelConsultar.Size = new System.Drawing.Size(679, 332);
+            this.panelConsultar.Size = new System.Drawing.Size(509, 270);
             this.panelConsultar.TabIndex = 8;
             this.panelConsultar.Visible = false;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(26, 108);
+            this.label1.Location = new System.Drawing.Point(20, 88);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 22);
+            this.label1.Size = new System.Drawing.Size(131, 18);
             this.label1.TabIndex = 28;
             this.label1.Text = "Ejemplares:";
             // 
@@ -204,9 +204,10 @@ namespace Biblioteca.UI
             this.cbNoDisponibles.AutoSize = true;
             this.cbNoDisponibles.Checked = true;
             this.cbNoDisponibles.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbNoDisponibles.Location = new System.Drawing.Point(540, 107);
+            this.cbNoDisponibles.Location = new System.Drawing.Point(405, 87);
+            this.cbNoDisponibles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbNoDisponibles.Name = "cbNoDisponibles";
-            this.cbNoDisponibles.Size = new System.Drawing.Size(123, 21);
+            this.cbNoDisponibles.Size = new System.Drawing.Size(95, 17);
             this.cbNoDisponibles.TabIndex = 27;
             this.cbNoDisponibles.Text = "No disponibles";
             this.cbNoDisponibles.UseVisualStyleBackColor = true;
@@ -217,9 +218,10 @@ namespace Biblioteca.UI
             this.cbDisponibles.AutoSize = true;
             this.cbDisponibles.Checked = true;
             this.cbDisponibles.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbDisponibles.Location = new System.Drawing.Point(431, 107);
+            this.cbDisponibles.Location = new System.Drawing.Point(323, 87);
+            this.cbDisponibles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbDisponibles.Name = "cbDisponibles";
-            this.cbDisponibles.Size = new System.Drawing.Size(103, 21);
+            this.cbDisponibles.Size = new System.Drawing.Size(80, 17);
             this.cbDisponibles.TabIndex = 26;
             this.cbDisponibles.Text = "Disponibles";
             this.cbDisponibles.UseVisualStyleBackColor = true;
@@ -227,10 +229,9 @@ namespace Biblioteca.UI
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(29, 64);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Location = new System.Drawing.Point(22, 52);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(177, 28);
+            this.btnBuscar.Size = new System.Drawing.Size(133, 23);
             this.btnBuscar.TabIndex = 25;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -240,10 +241,9 @@ namespace Biblioteca.UI
             // 
             this.btnMasInfo.BackColor = System.Drawing.Color.Aquamarine;
             this.btnMasInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMasInfo.Location = new System.Drawing.Point(29, 270);
-            this.btnMasInfo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMasInfo.Location = new System.Drawing.Point(22, 219);
             this.btnMasInfo.Name = "btnMasInfo";
-            this.btnMasInfo.Size = new System.Drawing.Size(108, 46);
+            this.btnMasInfo.Size = new System.Drawing.Size(81, 37);
             this.btnMasInfo.TabIndex = 24;
             this.btnMasInfo.Text = "Más Informacion";
             this.btnMasInfo.UseVisualStyleBackColor = false;
@@ -251,37 +251,37 @@ namespace Biblioteca.UI
             // 
             // lblTituloLibro
             // 
-            this.lblTituloLibro.Location = new System.Drawing.Point(238, 34);
+            this.lblTituloLibro.Location = new System.Drawing.Point(178, 28);
+            this.lblTituloLibro.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTituloLibro.Name = "lblTituloLibro";
-            this.lblTituloLibro.Size = new System.Drawing.Size(425, 58);
+            this.lblTituloLibro.Size = new System.Drawing.Size(319, 47);
             this.lblTituloLibro.TabIndex = 15;
             this.lblTituloLibro.Text = "Libro:";
             // 
             // lblCodigoLibroConsultar
             // 
             this.lblCodigoLibroConsultar.AutoSize = true;
-            this.lblCodigoLibroConsultar.Location = new System.Drawing.Point(26, 13);
-            this.lblCodigoLibroConsultar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCodigoLibroConsultar.Location = new System.Drawing.Point(20, 11);
             this.lblCodigoLibroConsultar.Name = "lblCodigoLibroConsultar";
-            this.lblCodigoLibroConsultar.Size = new System.Drawing.Size(89, 17);
+            this.lblCodigoLibroConsultar.Size = new System.Drawing.Size(67, 13);
             this.lblCodigoLibroConsultar.TabIndex = 23;
             this.lblCodigoLibroConsultar.Text = "Cod de Libro";
             // 
             // tbCodigoLibroConsultar
             // 
-            this.tbCodigoLibroConsultar.Location = new System.Drawing.Point(29, 34);
-            this.tbCodigoLibroConsultar.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCodigoLibroConsultar.Location = new System.Drawing.Point(22, 28);
             this.tbCodigoLibroConsultar.Name = "tbCodigoLibroConsultar";
-            this.tbCodigoLibroConsultar.Size = new System.Drawing.Size(132, 22);
+            this.tbCodigoLibroConsultar.Size = new System.Drawing.Size(100, 20);
             this.tbCodigoLibroConsultar.TabIndex = 22;
             this.tbCodigoLibroConsultar.TextChanged += new System.EventHandler(this.tbCodigoLibroConsultar_TextChanged);
             this.tbCodigoLibroConsultar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCodigoLibroConsultar_KeyPress);
             // 
             // btnBusquedaAvanzadaConsultar
             // 
-            this.btnBusquedaAvanzadaConsultar.Location = new System.Drawing.Point(168, 31);
+            this.btnBusquedaAvanzadaConsultar.Location = new System.Drawing.Point(126, 25);
+            this.btnBusquedaAvanzadaConsultar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBusquedaAvanzadaConsultar.Name = "btnBusquedaAvanzadaConsultar";
-            this.btnBusquedaAvanzadaConsultar.Size = new System.Drawing.Size(38, 29);
+            this.btnBusquedaAvanzadaConsultar.Size = new System.Drawing.Size(28, 24);
             this.btnBusquedaAvanzadaConsultar.TabIndex = 15;
             this.btnBusquedaAvanzadaConsultar.Text = "...";
             this.btnBusquedaAvanzadaConsultar.UseVisualStyleBackColor = true;
@@ -290,13 +290,11 @@ namespace Biblioteca.UI
             // lstbResultado
             // 
             this.lstbResultado.FormattingEnabled = true;
-            this.lstbResultado.ItemHeight = 16;
             this.lstbResultado.Items.AddRange(new object[] {
             " "});
-            this.lstbResultado.Location = new System.Drawing.Point(28, 130);
-            this.lstbResultado.Margin = new System.Windows.Forms.Padding(4);
+            this.lstbResultado.Location = new System.Drawing.Point(21, 106);
             this.lstbResultado.Name = "lstbResultado";
-            this.lstbResultado.Size = new System.Drawing.Size(635, 132);
+            this.lstbResultado.Size = new System.Drawing.Size(477, 108);
             this.lstbResultado.TabIndex = 10;
             // 
             // lblConsultar
@@ -304,10 +302,9 @@ namespace Biblioteca.UI
             this.lblConsultar.AutoSize = true;
             this.lblConsultar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConsultar.ForeColor = System.Drawing.Color.Navy;
-            this.lblConsultar.Location = new System.Drawing.Point(28, 181);
-            this.lblConsultar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblConsultar.Location = new System.Drawing.Point(21, 147);
             this.lblConsultar.Name = "lblConsultar";
-            this.lblConsultar.Size = new System.Drawing.Size(128, 25);
+            this.lblConsultar.Size = new System.Drawing.Size(101, 20);
             this.lblConsultar.TabIndex = 6;
             this.lblConsultar.Text = ">  Consultar";
             this.lblConsultar.Click += new System.EventHandler(this.lblConsultar_Click);
@@ -317,10 +314,9 @@ namespace Biblioteca.UI
             this.lblIngresar.AutoSize = true;
             this.lblIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIngresar.ForeColor = System.Drawing.Color.Navy;
-            this.lblIngresar.Location = new System.Drawing.Point(28, 66);
-            this.lblIngresar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblIngresar.Location = new System.Drawing.Point(21, 54);
             this.lblIngresar.Name = "lblIngresar";
-            this.lblIngresar.Size = new System.Drawing.Size(114, 25);
+            this.lblIngresar.Size = new System.Drawing.Size(90, 20);
             this.lblIngresar.TabIndex = 5;
             this.lblIngresar.Text = ">  Ingresar";
             this.lblIngresar.Click += new System.EventHandler(this.lblIngresar_Click);
@@ -336,40 +332,31 @@ namespace Biblioteca.UI
             this.panelIngresar.Controls.Add(this.tbPrecio);
             this.panelIngresar.Controls.Add(this.tbObservaciones);
             this.panelIngresar.Controls.Add(this.tbCodigoLibroIngresar);
-            this.panelIngresar.Location = new System.Drawing.Point(33, 106);
-            this.panelIngresar.Margin = new System.Windows.Forms.Padding(4);
+            this.panelIngresar.Location = new System.Drawing.Point(25, 86);
             this.panelIngresar.Name = "panelIngresar";
-            this.panelIngresar.Size = new System.Drawing.Size(679, 71);
+            this.panelIngresar.Size = new System.Drawing.Size(509, 58);
             this.panelIngresar.TabIndex = 9;
             this.panelIngresar.Visible = false;
             // 
             // btnBusquedaAvanzadaIngresar
             // 
-            this.btnBusquedaAvanzadaIngresar.Location = new System.Drawing.Point(168, 33);
+            this.btnBusquedaAvanzadaIngresar.Location = new System.Drawing.Point(126, 27);
+            this.btnBusquedaAvanzadaIngresar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBusquedaAvanzadaIngresar.Name = "btnBusquedaAvanzadaIngresar";
-            this.btnBusquedaAvanzadaIngresar.Size = new System.Drawing.Size(38, 29);
+            this.btnBusquedaAvanzadaIngresar.Size = new System.Drawing.Size(28, 24);
             this.btnBusquedaAvanzadaIngresar.TabIndex = 14;
             this.btnBusquedaAvanzadaIngresar.Text = "...";
             this.btnBusquedaAvanzadaIngresar.UseVisualStyleBackColor = true;
             this.btnBusquedaAvanzadaIngresar.Click += new System.EventHandler(this.btnBusquedaAvanzadaIngresar_Click);
-            // 
-            // lblDatosLibro
-            // 
-            this.lblDatosLibro.Location = new System.Drawing.Point(238, 33);
-            this.lblDatosLibro.Name = "lblDatosLibro";
-            this.lblDatosLibro.Size = new System.Drawing.Size(408, 208);
-            this.lblDatosLibro.TabIndex = 13;
-            this.lblDatosLibro.Text = "Libro:";
             // 
             // btnListo
             // 
             this.btnListo.BackColor = System.Drawing.Color.SeaGreen;
             this.btnListo.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnListo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnListo.Location = new System.Drawing.Point(29, 203);
-            this.btnListo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnListo.Location = new System.Drawing.Point(22, 165);
             this.btnListo.Name = "btnListo";
-            this.btnListo.Size = new System.Drawing.Size(132, 38);
+            this.btnListo.Size = new System.Drawing.Size(99, 31);
             this.btnListo.TabIndex = 11;
             this.btnListo.Text = "✔ Agregar";
             this.btnListo.UseVisualStyleBackColor = false;
@@ -378,74 +365,76 @@ namespace Biblioteca.UI
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(25, 134);
-            this.lblPrecio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrecio.Location = new System.Drawing.Point(19, 109);
             this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(48, 17);
+            this.lblPrecio.Size = new System.Drawing.Size(37, 13);
             this.lblPrecio.TabIndex = 8;
             this.lblPrecio.Text = "Precio";
             // 
             // lblObservaciones
             // 
             this.lblObservaciones.AutoSize = true;
-            this.lblObservaciones.Location = new System.Drawing.Point(25, 75);
-            this.lblObservaciones.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblObservaciones.Location = new System.Drawing.Point(19, 61);
             this.lblObservaciones.Name = "lblObservaciones";
-            this.lblObservaciones.Size = new System.Drawing.Size(103, 17);
+            this.lblObservaciones.Size = new System.Drawing.Size(78, 13);
             this.lblObservaciones.TabIndex = 7;
             this.lblObservaciones.Text = "Observaciones";
             // 
             // lblCodigoLibroIngresar
             // 
             this.lblCodigoLibroIngresar.AutoSize = true;
-            this.lblCodigoLibroIngresar.Location = new System.Drawing.Point(25, 16);
-            this.lblCodigoLibroIngresar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCodigoLibroIngresar.Location = new System.Drawing.Point(19, 13);
             this.lblCodigoLibroIngresar.Name = "lblCodigoLibroIngresar";
-            this.lblCodigoLibroIngresar.Size = new System.Drawing.Size(92, 17);
+            this.lblCodigoLibroIngresar.Size = new System.Drawing.Size(69, 13);
             this.lblCodigoLibroIngresar.TabIndex = 6;
             this.lblCodigoLibroIngresar.Text = "Cod del Libro";
             // 
             // tbPrecio
             // 
-            this.tbPrecio.Location = new System.Drawing.Point(29, 154);
-            this.tbPrecio.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPrecio.Location = new System.Drawing.Point(22, 125);
             this.tbPrecio.Name = "tbPrecio";
-            this.tbPrecio.Size = new System.Drawing.Size(132, 22);
+            this.tbPrecio.Size = new System.Drawing.Size(100, 20);
             this.tbPrecio.TabIndex = 2;
             this.tbPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrecio_KeyPress);
             this.tbPrecio.Leave += new System.EventHandler(this.tbPrecio_Leave);
             // 
             // tbObservaciones
             // 
-            this.tbObservaciones.Location = new System.Drawing.Point(29, 95);
-            this.tbObservaciones.Margin = new System.Windows.Forms.Padding(4);
+            this.tbObservaciones.Location = new System.Drawing.Point(22, 77);
             this.tbObservaciones.Name = "tbObservaciones";
-            this.tbObservaciones.Size = new System.Drawing.Size(132, 22);
+            this.tbObservaciones.Size = new System.Drawing.Size(100, 20);
             this.tbObservaciones.TabIndex = 1;
             // 
             // tbCodigoLibroIngresar
             // 
-            this.tbCodigoLibroIngresar.Location = new System.Drawing.Point(29, 36);
-            this.tbCodigoLibroIngresar.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCodigoLibroIngresar.Location = new System.Drawing.Point(22, 29);
             this.tbCodigoLibroIngresar.Name = "tbCodigoLibroIngresar";
-            this.tbCodigoLibroIngresar.Size = new System.Drawing.Size(132, 22);
+            this.tbCodigoLibroIngresar.Size = new System.Drawing.Size(100, 20);
             this.tbCodigoLibroIngresar.TabIndex = 0;
             this.tbCodigoLibroIngresar.TextChanged += new System.EventHandler(this.tbCodigoLibroIngresar_TextChanged);
             this.tbCodigoLibroIngresar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCodigoLibroIngresar_KeyPress);
             // 
+            // lblDatosLibro
+            // 
+            this.lblDatosLibro.Location = new System.Drawing.Point(178, 21);
+            this.lblDatosLibro.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDatosLibro.Name = "lblDatosLibro";
+            this.lblDatosLibro.Size = new System.Drawing.Size(306, 169);
+            this.lblDatosLibro.TabIndex = 13;
+            this.lblDatosLibro.Text = "Libro:";
+            // 
             // frmEjemplar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(761, 554);
+            this.ClientSize = new System.Drawing.Size(571, 450);
             this.Controls.Add(this.panelIngresar);
             this.Controls.Add(this.panelConsultar);
             this.Controls.Add(this.lblConsultar);
             this.Controls.Add(this.lblIngresar);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmEjemplar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Biblioteca";
@@ -478,7 +467,6 @@ namespace Biblioteca.UI
         private System.Windows.Forms.ToolStripButton navPrestamo;
         private System.Windows.Forms.ToolStripButton navReportes;
         private System.Windows.Forms.Panel panelIngresar;
-        private System.Windows.Forms.Label lblDatosLibro;
         private System.Windows.Forms.Button btnListo;
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.Label lblObservaciones;
@@ -496,5 +484,6 @@ namespace Biblioteca.UI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox cbNoDisponibles;
         private System.Windows.Forms.CheckBox cbDisponibles;
+        private System.Windows.Forms.Label lblDatosLibro;
     }
 }

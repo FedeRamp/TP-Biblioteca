@@ -13,13 +13,11 @@ namespace Biblioteca.Negocio
 {
     public class LibroNegocio
     {
-        LibroMapper _libroMapper;
         List<Libro> libros;
 
         public LibroNegocio()
         {
-            _libroMapper = new LibroMapper();
-            libros = _libroMapper.traerTodos();
+            libros = LibroMapper.traerTodos();
         }
         public List<Libro> traerTodos
         {
@@ -47,7 +45,7 @@ namespace Biblioteca.Negocio
                 libro.Editorial = editorial;
                 libro.Tema = tema;
 
-                return _libroMapper.insertarLibro(libro);
+                return LibroMapper.insertarLibro(libro);
             }
             catch (Exception ex)
             {
