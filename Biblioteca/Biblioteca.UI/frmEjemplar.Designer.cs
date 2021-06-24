@@ -334,7 +334,8 @@ namespace Biblioteca.UI
             this.panelIngresar.Controls.Add(this.tbCodigoLibroIngresar);
             this.panelIngresar.Location = new System.Drawing.Point(25, 86);
             this.panelIngresar.Name = "panelIngresar";
-            this.panelIngresar.Size = new System.Drawing.Size(509, 58);
+            this.panelIngresar.Size = new System.Drawing.Size(509, 266);
+
             this.panelIngresar.TabIndex = 9;
             this.panelIngresar.Visible = false;
             // 
@@ -348,6 +349,15 @@ namespace Biblioteca.UI
             this.btnBusquedaAvanzadaIngresar.Text = "...";
             this.btnBusquedaAvanzadaIngresar.UseVisualStyleBackColor = true;
             this.btnBusquedaAvanzadaIngresar.Click += new System.EventHandler(this.btnBusquedaAvanzadaIngresar_Click);
+            // 
+            // lblDatosLibro
+            // 
+            this.lblDatosLibro.Location = new System.Drawing.Point(178, 27);
+            this.lblDatosLibro.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDatosLibro.Name = "lblDatosLibro";
+            this.lblDatosLibro.Size = new System.Drawing.Size(306, 169);
+            this.lblDatosLibro.TabIndex = 13;
+            this.lblDatosLibro.Text = "Libro:";
             // 
             // btnListo
             // 

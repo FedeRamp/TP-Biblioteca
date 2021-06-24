@@ -31,6 +31,10 @@ namespace Biblioteca.Negocio
             }
         }
 
+        public List<Libro> getTodos() {
+            return _libroMapper.traerTodos();
+        }
+
         public TransactionResult insertarLibro(string edicion, string paginas, string titulo, string autor, string editorial, string tema)
         {
             try

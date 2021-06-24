@@ -294,23 +294,32 @@ namespace Biblioteca.UI
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
-            }            
+            }     
+            
         }
         private string MostrarDisponibilidad(Ejemplar ejemplar)
         {
-            prestamos = prestamoNegocio.ListaPrestamos();
-            string disponibilidad = "DISPONIBLE";
+            
+                prestamos = prestamoNegocio.ListaPrestamos();
+                string disponibilidad = "DISPONIBLE";
 
-            foreach (Prestamo pres in prestamos)
-            {
-                if (ejemplar.Id == pres.IdEjemplar && pres.Abierto)
+                foreach (Prestamo pres in prestamos)
                 {
-                    disponibilidad = "NO DISPONIBLE";
-                    break;
+                    if (ejemplar == null)
+                    {
+                        throw new Exception("La lista de ejemplares esta vacia, intente con otro codigo");
+                    }
+                    if (ejemplar.Id == pres.IdEjemplar && pres.Abierto)
+                    {
+                        disponibilidad = "NO DISPONIBLE";
+                        break;
+                    }
+                    
                 }
-            }
 
-            return disponibilidad;
+                return disponibilidad;
+            
+           
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
