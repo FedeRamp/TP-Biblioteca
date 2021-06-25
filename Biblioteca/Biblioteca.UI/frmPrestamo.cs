@@ -1,4 +1,5 @@
 ﻿using Biblioteca.Entidades;
+using Biblioteca.Entidades.exceptions;
 using Biblioteca.Negocio;
 using Biblioteca.UI.ComponentesCustom;
 using System;
@@ -51,13 +52,6 @@ namespace Biblioteca.UI
         {
             frmEjemplar frmEjem = new frmEjemplar(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
             frmEjem.Show();
-            this.Hide();
-        }
-
-        private void navReportes_Click(object sender, EventArgs e)
-        {
-            frmReportes frmRep = new frmReportes(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
-            frmRep.Show();
             this.Hide();
         }
 
@@ -155,17 +149,32 @@ namespace Biblioteca.UI
             listBox1.DataSource = prestamoNegocio.PrestamosPorCliente(cliente.Id);
         }
 
+        private void LimpiarIngresar()
+        {
+            this.txtPlazo.Text = "";
+            this.comboBox1.SelectedIndex = -1;
+            this.comboBox2.SelectedIndex = -1;
+        }
         private void btnListo_Click(object sender, EventArgs e)
         {       //Insertar nuevo Prestamo
             int plazo = 0;
             if (comboBox1.SelectedIndex != 0 || comboBox2.SelectedIndex != 0 || int.TryParse(txtPlazo.Text, out plazo))
             {
-                Cliente cliente = (Cliente)comboBox1.SelectedItem;
-                Ejemplar ejemplar = (Ejemplar)comboBox2.SelectedItem;
-                prestamoNegocio.InsertarPrestamo(cliente.Id, ejemplar.Id, Convert.ToInt32(txtPlazo.Text));
-                prestamoNegocio.Update();
-                ActualizarPrestamos();
-            } else
+                try
+                {
+                    Cliente cliente = (Cliente)comboBox1.SelectedItem;
+                    Ejemplar ejemplar = (Ejemplar)comboBox2.SelectedItem;
+                    MessageBox.Show(prestamoNegocio.InsertarPrestamo(cliente.Id, ejemplar.Id, Convert.ToInt32(txtPlazo.Text)));
+                    prestamoNegocio.Update();
+                    ActualizarPrestamos();
+                    LimpiarIngresar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+            else
             {
                 MessageBox.Show("Hay campos obligatorios sin rellenar o llenos incorrectamente");
             }
@@ -175,7 +184,13 @@ namespace Biblioteca.UI
         private void txtPlazo_KeyPress(object sender, KeyPressEventArgs e)
         { //Handled == true ---> Cancela el KeyPress
             //El método hace que el txtBox solo capture digitos
-            e.Handled = !char.IsDigit(e.KeyChar);
+            if(char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            } else
+            {
+                e.Handled = true;
+            }
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -196,8 +211,19 @@ namespace Biblioteca.UI
 
         private void btnMasInfo_Click(object sender, EventArgs e)
         {
-            Prestamo prestamo = (Prestamo)listBox1.SelectedItem;
-            MessageBox.Show(prestamo.InfoCompleta());
+            try
+            {
+                Prestamo prestamo = (Prestamo)listBox1.SelectedItem;
+                if (prestamo == null)
+                {
+                    throw new Exception("La lista de prestamos se encuentra vacia, intente con otro cliente");
+                }
+                MessageBox.Show(prestamo.InfoCompleta());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

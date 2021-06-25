@@ -13,19 +13,19 @@ namespace Biblioteca.Datos.Mappers
     public class LibroMapper
     {
 
-        private List<Libro> MapList(string json)
+        static private List<Libro> MapList(string json)
         {
             List<Libro> lst = JsonConvert.DeserializeObject<List<Libro>>(json);
             return lst;
         }
 
-        private Libro MapObjectCliente(string json)
+        static private Libro MapObjectCliente(string json)
         {
             Libro cli = JsonConvert.DeserializeObject<Libro>(json);
             return cli;
         }
 
-        private NameValueCollection ReverseMap(Libro libro)
+        static private NameValueCollection ReverseMap(Libro libro)
         {
             NameValueCollection n = new NameValueCollection();
             n.Add("edicion", libro.Edicion.ToString());
@@ -37,7 +37,7 @@ namespace Biblioteca.Datos.Mappers
             return n;
         }
 
-        public TransactionResult insertarLibro(Libro libro)
+        static public TransactionResult insertarLibro(Libro libro)
         {
             NameValueCollection obj = ReverseMap(libro);
 
@@ -55,7 +55,7 @@ namespace Biblioteca.Datos.Mappers
             }
         }
 
-        public List<Libro> traerTodos()
+        static public List<Libro> traerTodos()
         {
             try
             {

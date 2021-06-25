@@ -39,11 +39,9 @@ namespace Biblioteca.UI
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.navPrestamo = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.navReportes = new System.Windows.Forms.ToolStripButton();
             this.panelConsultar = new System.Windows.Forms.Panel();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnMasInfo = new System.Windows.Forms.Button();
-            this.btnBorrar = new System.Windows.Forms.Button();
             this.lstListaLibros = new System.Windows.Forms.ListBox();
             this.lblResultado = new System.Windows.Forms.Label();
             this.lblConsultar = new System.Windows.Forms.Label();
@@ -79,8 +77,7 @@ namespace Biblioteca.UI
             this.navEjemplar,
             this.toolStripSeparator3,
             this.navPrestamo,
-            this.toolStripSeparator4,
-            this.navReportes});
+            this.toolStripSeparator4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(761, 28);
@@ -158,24 +155,10 @@ namespace Biblioteca.UI
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 28);
             // 
-            // navReportes
-            // 
-            this.navReportes.AutoSize = false;
-            this.navReportes.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.navReportes.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.navReportes.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.navReportes.Image = ((System.Drawing.Image)(resources.GetObject("navReportes.Image")));
-            this.navReportes.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.navReportes.Name = "navReportes";
-            this.navReportes.Size = new System.Drawing.Size(100, 25);
-            this.navReportes.Text = "Reportes";
-            this.navReportes.Click += new System.EventHandler(this.navReportes_Click);
-            // 
             // panelConsultar
             // 
             this.panelConsultar.Controls.Add(this.btnActualizar);
             this.panelConsultar.Controls.Add(this.btnMasInfo);
-            this.panelConsultar.Controls.Add(this.btnBorrar);
             this.panelConsultar.Controls.Add(this.lstListaLibros);
             this.panelConsultar.Controls.Add(this.lblResultado);
             this.panelConsultar.Location = new System.Drawing.Point(21, 224);
@@ -209,23 +192,7 @@ namespace Biblioteca.UI
             this.btnMasInfo.TabIndex = 12;
             this.btnMasInfo.Text = "Mas Informacion";
             this.btnMasInfo.UseVisualStyleBackColor = false;
-            // 
-            // btnBorrar
-            // 
-            this.btnBorrar.BackColor = System.Drawing.Color.White;
-            this.btnBorrar.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBorrar.ForeColor = System.Drawing.Color.Red;
-            this.btnBorrar.Image = ((System.Drawing.Image)(resources.GetObject("btnBorrar.Image")));
-            this.btnBorrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBorrar.Location = new System.Drawing.Point(391, 198);
-            this.btnBorrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(129, 28);
-            this.btnBorrar.TabIndex = 11;
-            this.btnBorrar.Text = "Eliminar";
-            this.btnBorrar.UseVisualStyleBackColor = false;
-            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            this.btnMasInfo.Click += new System.EventHandler(this.btnMasInfo_Click);
             // 
             // lstListaLibros
             // 
@@ -310,9 +277,9 @@ namespace Biblioteca.UI
             this.label6.Location = new System.Drawing.Point(219, 75);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 17);
+            this.label6.Size = new System.Drawing.Size(44, 17);
             this.label6.TabIndex = 16;
-            this.label6.Text = "tema";
+            this.label6.Text = "Tema";
             // 
             // txtEditorial
             // 
@@ -328,9 +295,9 @@ namespace Biblioteca.UI
             this.label5.Location = new System.Drawing.Point(215, 16);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 17);
+            this.label5.Size = new System.Drawing.Size(59, 17);
             this.label5.TabIndex = 14;
-            this.label5.Text = "editorial";
+            this.label5.Text = "Editorial";
             // 
             // txtAutor
             // 
@@ -346,9 +313,9 @@ namespace Biblioteca.UI
             this.label4.Location = new System.Drawing.Point(25, 188);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 17);
+            this.label4.Size = new System.Drawing.Size(42, 17);
             this.label4.TabIndex = 12;
-            this.label4.Text = "autor";
+            this.label4.Text = "Autor";
             // 
             // btnListo
             // 
@@ -370,9 +337,9 @@ namespace Biblioteca.UI
             this.label3.Location = new System.Drawing.Point(25, 134);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 17);
+            this.label3.Size = new System.Drawing.Size(43, 17);
             this.label3.TabIndex = 8;
-            this.label3.Text = "titulo";
+            this.label3.Text = "Titulo";
             // 
             // label2
             // 
@@ -390,9 +357,9 @@ namespace Biblioteca.UI
             this.label1.Location = new System.Drawing.Point(25, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 17);
+            this.label1.Size = new System.Drawing.Size(54, 17);
             this.label1.TabIndex = 6;
-            this.label1.Text = "edicion";
+            this.label1.Text = "Edicion";
             // 
             // txtTitulo
             // 
@@ -431,6 +398,7 @@ namespace Biblioteca.UI
             this.Controls.Add(this.lblConsultar);
             this.Controls.Add(this.lblIngresar);
             this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmLibro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -456,7 +424,6 @@ namespace Biblioteca.UI
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.Panel panelConsultar;
         private System.Windows.Forms.Button btnMasInfo;
-        private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.ListBox lstListaLibros;
         private System.Windows.Forms.Label lblResultado;
         private System.Windows.Forms.Label lblConsultar;
@@ -480,6 +447,5 @@ namespace Biblioteca.UI
         private System.Windows.Forms.ToolStripButton navLibro;
         private System.Windows.Forms.ToolStripButton navEjemplar;
         private System.Windows.Forms.ToolStripButton navPrestamo;
-        private System.Windows.Forms.ToolStripButton navReportes;
     }
 }

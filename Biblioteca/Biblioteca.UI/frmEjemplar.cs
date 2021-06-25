@@ -60,13 +60,6 @@ namespace Biblioteca.UI
             this.Hide();
         }
 
-        private void navReportes_Click(object sender, EventArgs e)
-        {
-            frmReportes frmRep = new frmReportes(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
-            frmRep.Show();
-            this.Hide();
-        }
-
         private void lblIngresar_Click(object sender, EventArgs e)
         {
             if (!ingresarExpandido)
@@ -134,7 +127,7 @@ namespace Biblioteca.UI
 
         private void frmEjemplar_Load(object sender, EventArgs e)
         {
-            libros = libroNegocio.traerTodos(); //CORROBORAR EL ACCESO A LA LISTA.
+            libros = libroNegocio.traerTodos; //CORROBORAR EL ACCESO A LA LISTA.
         }
 
         private void btnBusquedaAvanzadaIngresar_Click(object sender, EventArgs e)
@@ -294,23 +287,32 @@ namespace Biblioteca.UI
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
-            }            
+            }     
+            
         }
         private string MostrarDisponibilidad(Ejemplar ejemplar)
         {
-            prestamos = prestamoNegocio.ListaPrestamos();
-            string disponibilidad = "DISPONIBLE";
+            
+                prestamos = prestamoNegocio.ListaPrestamos();
+                string disponibilidad = "DISPONIBLE";
 
-            foreach (Prestamo pres in prestamos)
-            {
-                if (ejemplar.Id == pres.IdEjemplar && pres.Abierto)
+                foreach (Prestamo pres in prestamos)
                 {
-                    disponibilidad = "NO DISPONIBLE";
-                    break;
+                    if (ejemplar == null)
+                    {
+                        throw new Exception("La lista de ejemplares esta vacia, intente con otro codigo");
+                    }
+                    if (ejemplar.Id == pres.IdEjemplar && pres.Abierto)
+                    {
+                        disponibilidad = "NO DISPONIBLE";
+                        break;
+                    }
+                    
                 }
-            }
 
-            return disponibilidad;
+                return disponibilidad;
+            
+           
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

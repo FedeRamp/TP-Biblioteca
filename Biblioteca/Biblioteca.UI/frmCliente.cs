@@ -54,15 +54,8 @@ namespace Biblioteca.UI
             this.Hide();
         }
 
-        private void navReportes_Click(object sender, EventArgs e)
-        {
-            frmReportes frmRep = new frmReportes(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
-            frmRep.Show();
-            this.Hide();
-        }                    
 
-
-                        //**Asociamiento de EventHandlers**//
+        //**Asociamiento de EventHandlers**//
         private void lblIngresar_Click(object sender, EventArgs e)
         {
             if (!ingresarExpandido)
@@ -175,6 +168,58 @@ namespace Biblioteca.UI
         {
             Cliente cliente = (Cliente)comboBox1.SelectedItem;
             MessageBox.Show(cliente.InfoCompleta());
+        }
+
+        private void btnListo_Click(object sender, EventArgs e)
+        {
+            string nombre = txtNombre.Text;
+            string apellido = txtApellido.Text;
+            string direccion = txtDireccion.Text;
+            string email = txtEmail.Text;
+            string telefono = txtTelefono.Text;
+            DateTime fechaNacimiento = dateTimePicker1.Value;
+            try
+            {
+                int dni = Convert.ToInt32(txtDNI.Text);
+                MessageBox.Show( clienteNegocio.InsertarCliente(dni, nombre, apellido, direccion, email, telefono, fechaNacimiento));
+                ActualizarClientes();
+                LimpiarIngreso();
+            }
+            catch (OverflowException oe)
+            {
+                MessageBox.Show("El DNI ingresado es muy largo");
+            }
+            catch (FormatException fe)
+            {
+                MessageBox.Show("Utilizar sólo números para el DNI");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            } else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void LimpiarIngreso()
+        {
+            txtApellido.Text = "";
+            txtNombre.Text = "";
+            txtEmail.Text = "";
+            txtDireccion.Text = "";
+            txtDNI.Text = "";
+            txtTelefono.Text = "";
+            dateTimePicker1.Value = DateTime.Today;
+
         }
     }
 }

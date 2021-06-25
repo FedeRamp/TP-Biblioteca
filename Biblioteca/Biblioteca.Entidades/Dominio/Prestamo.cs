@@ -51,13 +51,13 @@ namespace Biblioteca.Entidades
         public override string ToString()
         {
             string ac = abierto ? "devolver" : "devuelto";
-            return $"{this.id}) cliente {this.IdCliente} pidió {this.IdEjemplar} - {ac}";
+            return $"{this.id}) cliente {this.IdCliente} pidió ejemplar {this.IdEjemplar} - {ac}";
         }
 
         public string InfoCompleta()
         {
             string ac = abierto ? "devolver" : "devuelto";
-            string resultado = $"{this.id}) cliente {this.IdCliente} pidió {this.IdEjemplar} - {ac}" +
+            string resultado = $"{this.id}) cliente {this.IdCliente} pidió ejemplar {this.IdEjemplar} - {ac}" +
                 $"\nInicio: {this.fechaPrestamo} por {this.plazo} dias (devolucion: {this.fechaDevolucionTentativa})";
             if (!abierto)
             {

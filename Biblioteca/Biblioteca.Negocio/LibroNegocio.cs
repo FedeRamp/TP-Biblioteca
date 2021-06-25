@@ -13,13 +13,11 @@ namespace Biblioteca.Negocio
 {
     public class LibroNegocio
     {
-        LibroMapper _libroMapper;
         List<Libro> libros;
 
         public LibroNegocio()
         {
-            _libroMapper = new LibroMapper();
-            libros = _libroMapper.traerTodos();
+            libros = LibroMapper.traerTodos();
         }
         public List<Libro> traerTodos
         {
@@ -31,6 +29,11 @@ namespace Biblioteca.Negocio
             {
                 libros = value;
             }
+        }
+
+        public void update()
+        {
+            this.libros = LibroMapper.traerTodos();
         }
 
         public TransactionResult insertarLibro(string edicion, string paginas, string titulo, string autor, string editorial, string tema)
@@ -47,7 +50,7 @@ namespace Biblioteca.Negocio
                 libro.Editorial = editorial;
                 libro.Tema = tema;
 
-                return _libroMapper.insertarLibro(libro);
+                return LibroMapper.insertarLibro(libro);
             }
             catch (Exception ex)
             {

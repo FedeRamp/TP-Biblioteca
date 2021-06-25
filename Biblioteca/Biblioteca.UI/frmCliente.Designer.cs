@@ -39,10 +39,13 @@ namespace Biblioteca.UI
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.navPrestamo = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.navReportes = new System.Windows.Forms.ToolStripButton();
             this.lblIngresar = new System.Windows.Forms.Label();
             this.lblConsultar = new System.Windows.Forms.Label();
             this.panelIngresar = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtDNI = new System.Windows.Forms.TextBox();
             this.btnListo = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -57,7 +60,6 @@ namespace Biblioteca.UI
             this.panelConsultar = new System.Windows.Forms.Panel();
             this.btnMasInfo = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.lblId = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
@@ -77,8 +79,7 @@ namespace Biblioteca.UI
             this.navEjemplar,
             this.toolStripSeparator3,
             this.navPrestamo,
-            this.toolStripSeparator4,
-            this.navReportes});
+            this.toolStripSeparator4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(761, 28);
@@ -156,19 +157,6 @@ namespace Biblioteca.UI
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 28);
             // 
-            // navReportes
-            // 
-            this.navReportes.AutoSize = false;
-            this.navReportes.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.navReportes.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.navReportes.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.navReportes.Image = ((System.Drawing.Image)(resources.GetObject("navReportes.Image")));
-            this.navReportes.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.navReportes.Name = "navReportes";
-            this.navReportes.Size = new System.Drawing.Size(100, 25);
-            this.navReportes.Text = "Reportes";
-            this.navReportes.Click += new System.EventHandler(this.navReportes_Click);
-            // 
             // lblIngresar
             // 
             this.lblIngresar.AutoSize = true;
@@ -197,6 +185,10 @@ namespace Biblioteca.UI
             // 
             // panelIngresar
             // 
+            this.panelIngresar.Controls.Add(this.dateTimePicker1);
+            this.panelIngresar.Controls.Add(this.label5);
+            this.panelIngresar.Controls.Add(this.label7);
+            this.panelIngresar.Controls.Add(this.txtDNI);
             this.panelIngresar.Controls.Add(this.btnListo);
             this.panelIngresar.Controls.Add(this.label6);
             this.panelIngresar.Controls.Add(this.label3);
@@ -215,6 +207,45 @@ namespace Biblioteca.UI
             this.panelIngresar.TabIndex = 3;
             this.panelIngresar.Visible = false;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "dd-MM-yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(237, 95);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(132, 22);
+            this.dateTimePicker1.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(233, 75);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(121, 17);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Fecha Nacimiento";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(233, 16);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(31, 17);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "DNI";
+            // 
+            // txtDNI
+            // 
+            this.txtDNI.Location = new System.Drawing.Point(237, 36);
+            this.txtDNI.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDNI.Name = "txtDNI";
+            this.txtDNI.Size = new System.Drawing.Size(132, 22);
+            this.txtDNI.TabIndex = 5;
+            this.txtDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNI_KeyPress);
+            // 
             // btnListo
             // 
             this.btnListo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -224,9 +255,10 @@ namespace Biblioteca.UI
             this.btnListo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnListo.Name = "btnListo";
             this.btnListo.Size = new System.Drawing.Size(128, 43);
-            this.btnListo.TabIndex = 11;
+            this.btnListo.TabIndex = 7;
             this.btnListo.Text = "✔ Listo";
             this.btnListo.UseVisualStyleBackColor = false;
+            this.btnListo.Click += new System.EventHandler(this.btnListo_Click);
             // 
             // label6
             // 
@@ -322,7 +354,6 @@ namespace Biblioteca.UI
             // 
             this.panelConsultar.Controls.Add(this.btnMasInfo);
             this.panelConsultar.Controls.Add(this.comboBox1);
-            this.panelConsultar.Controls.Add(this.button2);
             this.panelConsultar.Controls.Add(this.listBox1);
             this.panelConsultar.Controls.Add(this.lblId);
             this.panelConsultar.Location = new System.Drawing.Point(21, 224);
@@ -339,7 +370,7 @@ namespace Biblioteca.UI
             this.btnMasInfo.Location = new System.Drawing.Point(29, 234);
             this.btnMasInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMasInfo.Name = "btnMasInfo";
-            this.btnMasInfo.Size = new System.Drawing.Size(108, 46);
+            this.btnMasInfo.Size = new System.Drawing.Size(114, 55);
             this.btnMasInfo.TabIndex = 22;
             this.btnMasInfo.Text = "Más Informacion";
             this.btnMasInfo.UseVisualStyleBackColor = false;
@@ -347,6 +378,7 @@ namespace Biblioteca.UI
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(29, 39);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -354,24 +386,6 @@ namespace Biblioteca.UI
             this.comboBox1.Size = new System.Drawing.Size(196, 24);
             this.comboBox1.TabIndex = 20;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(236, 242);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 28);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Eliminar cliente";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // listBox1
             // 
@@ -399,11 +413,12 @@ namespace Biblioteca.UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(761, 554);
+            this.Controls.Add(this.panelIngresar);
             this.Controls.Add(this.panelConsultar);
             this.Controls.Add(this.lblConsultar);
             this.Controls.Add(this.lblIngresar);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.panelIngresar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -448,10 +463,12 @@ namespace Biblioteca.UI
         private System.Windows.Forms.ToolStripButton navLibro;
         private System.Windows.Forms.ToolStripButton navEjemplar;
         private System.Windows.Forms.ToolStripButton navPrestamo;
-        private System.Windows.Forms.ToolStripButton navReportes;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button btnMasInfo;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtDNI;
     }
 }
 
