@@ -266,9 +266,9 @@ namespace Biblioteca.UI
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(164, 61);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(30, 13);
+            this.label6.Size = new System.Drawing.Size(44, 17);
             this.label6.TabIndex = 16;
-            this.label6.Text = "tema";
+            this.label6.Text = "Tema";
             // 
             // txtEditorial
             // 
@@ -282,9 +282,9 @@ namespace Biblioteca.UI
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(161, 13);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.Size = new System.Drawing.Size(59, 17);
             this.label5.TabIndex = 14;
-            this.label5.Text = "editorial";
+            this.label5.Text = "Editorial";
             // 
             // txtAutor
             // 
@@ -298,9 +298,9 @@ namespace Biblioteca.UI
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(19, 153);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.Size = new System.Drawing.Size(42, 17);
             this.label4.TabIndex = 12;
-            this.label4.Text = "autor";
+            this.label4.Text = "Autor";
             // 
             // btnListo
             // 
@@ -320,9 +320,9 @@ namespace Biblioteca.UI
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(19, 109);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 13);
+            this.label3.Size = new System.Drawing.Size(43, 17);
             this.label3.TabIndex = 8;
-            this.label3.Text = "titulo";
+            this.label3.Text = "Titulo";
             // 
             // label2
             // 
@@ -338,9 +338,9 @@ namespace Biblioteca.UI
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(19, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.Size = new System.Drawing.Size(54, 17);
             this.label1.TabIndex = 6;
-            this.label1.Text = "edicion";
+            this.label1.Text = "Edicion";
             // 
             // txtTitulo
             // 
@@ -377,6 +377,7 @@ namespace Biblioteca.UI
             this.Controls.Add(this.lblIngresar);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmLibro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Biblioteca";

@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +13,12 @@ namespace Biblioteca.Datos.Mappers
 {
     public class ClienteMapper
     {
+        
         static public List<Cliente> TraerTodos()
         {
-            string json2 = WebHelper.Get("cliente");
+            string usuario = ConfigurationManager.AppSettings["Usuario"];
+
+            string json2 = WebHelper.Get($"cliente/{usuario}");
             List<Cliente> resultado = MapList(json2);
             return resultado;
         }
@@ -46,6 +50,7 @@ namespace Biblioteca.Datos.Mappers
         }
         static private NameValueCollection ReverseMap(Cliente cliente)
         {
+            string usuario = ConfigurationManager.AppSettings["Usuario"];
             NameValueCollection n = new NameValueCollection();
             n.Add("DNI", cliente.Dni.ToString());
             n.Add("nombre", cliente.Nombre.ToString());
@@ -56,6 +61,7 @@ namespace Biblioteca.Datos.Mappers
             n.Add("fechaAlta", DateTime.Today.ToString("dd-MM-yyyy"));
             n.Add("activo", cliente.Activo.ToString());
             n.Add("id", "0");
+            n.Add("usuario", usuario);
             return n;
         }
     }

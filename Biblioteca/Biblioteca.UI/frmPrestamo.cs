@@ -1,4 +1,5 @@
 ﻿using Biblioteca.Entidades;
+using Biblioteca.Entidades.exceptions;
 using Biblioteca.Negocio;
 using Biblioteca.UI.ComponentesCustom;
 using System;
@@ -159,12 +160,19 @@ namespace Biblioteca.UI
             int plazo = 0;
             if (comboBox1.SelectedIndex != 0 || comboBox2.SelectedIndex != 0 || int.TryParse(txtPlazo.Text, out plazo))
             {
-                Cliente cliente = (Cliente)comboBox1.SelectedItem;
-                Ejemplar ejemplar = (Ejemplar)comboBox2.SelectedItem;
-                MessageBox.Show(prestamoNegocio.InsertarPrestamo(cliente.Id, ejemplar.Id, Convert.ToInt32(txtPlazo.Text)));
-                prestamoNegocio.Update();
-                ActualizarPrestamos();
-                LimpiarIngresar();
+                try
+                {
+                    Cliente cliente = (Cliente)comboBox1.SelectedItem;
+                    Ejemplar ejemplar = (Ejemplar)comboBox2.SelectedItem;
+                    MessageBox.Show(prestamoNegocio.InsertarPrestamo(cliente.Id, ejemplar.Id, Convert.ToInt32(txtPlazo.Text)));
+                    prestamoNegocio.Update();
+                    ActualizarPrestamos();
+                    LimpiarIngresar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
             }
             else
             {
