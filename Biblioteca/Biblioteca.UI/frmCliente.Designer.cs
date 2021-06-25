@@ -39,7 +39,6 @@ namespace Biblioteca.UI
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.navPrestamo = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.navReportes = new System.Windows.Forms.ToolStripButton();
             this.lblIngresar = new System.Windows.Forms.Label();
             this.lblConsultar = new System.Windows.Forms.Label();
             this.panelIngresar = new System.Windows.Forms.Panel();
@@ -81,8 +80,7 @@ namespace Biblioteca.UI
             this.navEjemplar,
             this.toolStripSeparator3,
             this.navPrestamo,
-            this.toolStripSeparator4,
-            this.navReportes});
+            this.toolStripSeparator4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(571, 28);
@@ -160,19 +158,6 @@ namespace Biblioteca.UI
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 28);
             // 
-            // navReportes
-            // 
-            this.navReportes.AutoSize = false;
-            this.navReportes.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.navReportes.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.navReportes.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.navReportes.Image = ((System.Drawing.Image)(resources.GetObject("navReportes.Image")));
-            this.navReportes.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.navReportes.Name = "navReportes";
-            this.navReportes.Size = new System.Drawing.Size(100, 25);
-            this.navReportes.Text = "Reportes";
-            this.navReportes.Click += new System.EventHandler(this.navReportes_Click);
-            // 
             // lblIngresar
             // 
             this.lblIngresar.AutoSize = true;
@@ -225,7 +210,7 @@ namespace Biblioteca.UI
             this.dateTimePicker1.CustomFormat = "dd-MM-yyyy";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(178, 77);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(100, 20);
             this.dateTimePicker1.TabIndex = 6;
@@ -473,7 +458,6 @@ namespace Biblioteca.UI
         private System.Windows.Forms.ToolStripButton navLibro;
         private System.Windows.Forms.ToolStripButton navEjemplar;
         private System.Windows.Forms.ToolStripButton navPrestamo;
-        private System.Windows.Forms.ToolStripButton navReportes;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button btnMasInfo;

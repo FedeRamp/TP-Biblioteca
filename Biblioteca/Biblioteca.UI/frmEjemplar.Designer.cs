@@ -39,7 +39,6 @@ namespace Biblioteca.UI
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.navPrestamo = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.navReportes = new System.Windows.Forms.ToolStripButton();
             this.panelConsultar = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.cbNoDisponibles = new System.Windows.Forms.CheckBox();
@@ -55,6 +54,7 @@ namespace Biblioteca.UI
             this.lblIngresar = new System.Windows.Forms.Label();
             this.panelIngresar = new System.Windows.Forms.Panel();
             this.btnBusquedaAvanzadaIngresar = new System.Windows.Forms.Button();
+            this.lblDatosLibro = new System.Windows.Forms.Label();
             this.btnListo = new System.Windows.Forms.Button();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.lblObservaciones = new System.Windows.Forms.Label();
@@ -62,7 +62,6 @@ namespace Biblioteca.UI
             this.tbPrecio = new System.Windows.Forms.TextBox();
             this.tbObservaciones = new System.Windows.Forms.TextBox();
             this.tbCodigoLibroIngresar = new System.Windows.Forms.TextBox();
-            this.lblDatosLibro = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.panelConsultar.SuspendLayout();
             this.panelIngresar.SuspendLayout();
@@ -80,8 +79,7 @@ namespace Biblioteca.UI
             this.navEjemplar,
             this.toolStripSeparator3,
             this.navPrestamo,
-            this.toolStripSeparator4,
-            this.navReportes});
+            this.toolStripSeparator4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(571, 28);
@@ -159,19 +157,6 @@ namespace Biblioteca.UI
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 28);
             // 
-            // navReportes
-            // 
-            this.navReportes.AutoSize = false;
-            this.navReportes.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.navReportes.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.navReportes.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.navReportes.Image = ((System.Drawing.Image)(resources.GetObject("navReportes.Image")));
-            this.navReportes.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.navReportes.Name = "navReportes";
-            this.navReportes.Size = new System.Drawing.Size(100, 25);
-            this.navReportes.Text = "Reportes";
-            this.navReportes.Click += new System.EventHandler(this.navReportes_Click);
-            // 
             // panelConsultar
             // 
             this.panelConsultar.Controls.Add(this.label1);
@@ -205,7 +190,7 @@ namespace Biblioteca.UI
             this.cbNoDisponibles.Checked = true;
             this.cbNoDisponibles.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbNoDisponibles.Location = new System.Drawing.Point(405, 87);
-            this.cbNoDisponibles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbNoDisponibles.Margin = new System.Windows.Forms.Padding(2);
             this.cbNoDisponibles.Name = "cbNoDisponibles";
             this.cbNoDisponibles.Size = new System.Drawing.Size(95, 17);
             this.cbNoDisponibles.TabIndex = 27;
@@ -219,7 +204,7 @@ namespace Biblioteca.UI
             this.cbDisponibles.Checked = true;
             this.cbDisponibles.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbDisponibles.Location = new System.Drawing.Point(323, 87);
-            this.cbDisponibles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbDisponibles.Margin = new System.Windows.Forms.Padding(2);
             this.cbDisponibles.Name = "cbDisponibles";
             this.cbDisponibles.Size = new System.Drawing.Size(80, 17);
             this.cbDisponibles.TabIndex = 26;
@@ -279,7 +264,7 @@ namespace Biblioteca.UI
             // btnBusquedaAvanzadaConsultar
             // 
             this.btnBusquedaAvanzadaConsultar.Location = new System.Drawing.Point(126, 25);
-            this.btnBusquedaAvanzadaConsultar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBusquedaAvanzadaConsultar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBusquedaAvanzadaConsultar.Name = "btnBusquedaAvanzadaConsultar";
             this.btnBusquedaAvanzadaConsultar.Size = new System.Drawing.Size(28, 24);
             this.btnBusquedaAvanzadaConsultar.TabIndex = 15;
@@ -335,14 +320,13 @@ namespace Biblioteca.UI
             this.panelIngresar.Location = new System.Drawing.Point(25, 86);
             this.panelIngresar.Name = "panelIngresar";
             this.panelIngresar.Size = new System.Drawing.Size(509, 266);
-
             this.panelIngresar.TabIndex = 9;
             this.panelIngresar.Visible = false;
             // 
             // btnBusquedaAvanzadaIngresar
             // 
             this.btnBusquedaAvanzadaIngresar.Location = new System.Drawing.Point(126, 27);
-            this.btnBusquedaAvanzadaIngresar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBusquedaAvanzadaIngresar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBusquedaAvanzadaIngresar.Name = "btnBusquedaAvanzadaIngresar";
             this.btnBusquedaAvanzadaIngresar.Size = new System.Drawing.Size(28, 24);
             this.btnBusquedaAvanzadaIngresar.TabIndex = 14;
@@ -352,7 +336,7 @@ namespace Biblioteca.UI
             // 
             // lblDatosLibro
             // 
-            this.lblDatosLibro.Location = new System.Drawing.Point(178, 27);
+            this.lblDatosLibro.Location = new System.Drawing.Point(178, 21);
             this.lblDatosLibro.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDatosLibro.Name = "lblDatosLibro";
             this.lblDatosLibro.Size = new System.Drawing.Size(306, 169);
@@ -424,15 +408,6 @@ namespace Biblioteca.UI
             this.tbCodigoLibroIngresar.TextChanged += new System.EventHandler(this.tbCodigoLibroIngresar_TextChanged);
             this.tbCodigoLibroIngresar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCodigoLibroIngresar_KeyPress);
             // 
-            // lblDatosLibro
-            // 
-            this.lblDatosLibro.Location = new System.Drawing.Point(178, 21);
-            this.lblDatosLibro.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDatosLibro.Name = "lblDatosLibro";
-            this.lblDatosLibro.Size = new System.Drawing.Size(306, 169);
-            this.lblDatosLibro.TabIndex = 13;
-            this.lblDatosLibro.Text = "Libro:";
-            // 
             // frmEjemplar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -475,7 +450,6 @@ namespace Biblioteca.UI
         private System.Windows.Forms.ToolStripButton navLibro;
         private System.Windows.Forms.ToolStripButton navEjemplar;
         private System.Windows.Forms.ToolStripButton navPrestamo;
-        private System.Windows.Forms.ToolStripButton navReportes;
         private System.Windows.Forms.Panel panelIngresar;
         private System.Windows.Forms.Button btnListo;
         private System.Windows.Forms.Label lblPrecio;

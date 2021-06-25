@@ -39,7 +39,6 @@ namespace Biblioteca.UI
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.navPrestamo = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.navReportes = new System.Windows.Forms.ToolStripButton();
             this.panelConsultar = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -76,8 +75,7 @@ namespace Biblioteca.UI
             this.navEjemplar,
             this.toolStripSeparator3,
             this.navPrestamo,
-            this.toolStripSeparator4,
-            this.navReportes});
+            this.toolStripSeparator4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(571, 25);
@@ -160,19 +158,6 @@ namespace Biblioteca.UI
             this.toolStripSeparator4.AutoSize = false;
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
-            // 
-            // navReportes
-            // 
-            this.navReportes.AutoSize = false;
-            this.navReportes.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.navReportes.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.navReportes.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.navReportes.Image = ((System.Drawing.Image)(resources.GetObject("navReportes.Image")));
-            this.navReportes.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.navReportes.Name = "navReportes";
-            this.navReportes.Size = new System.Drawing.Size(100, 22);
-            this.navReportes.Text = "Reportes";
-            this.navReportes.Click += new System.EventHandler(this.navReportes_Click);
             // 
             // panelConsultar
             // 
@@ -434,7 +419,6 @@ namespace Biblioteca.UI
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ToolStripButton navReportes;
         private System.Windows.Forms.ToolStripButton navCliente;
         private System.Windows.Forms.ToolStripButton navLibro;
         private System.Windows.Forms.ToolStripButton navEjemplar;

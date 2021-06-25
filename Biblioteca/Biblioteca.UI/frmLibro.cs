@@ -55,12 +55,6 @@ namespace Biblioteca.UI
             this.Hide();
         }
 
-        private void navReportes_Click(object sender, EventArgs e)
-        {
-            frmReportes frmRep = new frmReportes(clienteNegocio, ejemplarNegocio, prestamoNegocio, libroNegocio);
-            frmRep.Show();
-            this.Hide();
-        }
 
         //**Asociamiento de EventHandlers**//
         private void lblIngresar_Click(object sender, EventArgs e)
