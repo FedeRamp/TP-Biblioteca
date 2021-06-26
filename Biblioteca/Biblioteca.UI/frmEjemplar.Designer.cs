@@ -170,7 +170,7 @@ namespace Biblioteca.UI
             this.panelConsultar.Controls.Add(this.btnBusquedaAvanzadaConsultar);
             this.panelConsultar.Controls.Add(this.lstbResultado);
             this.panelConsultar.Location = new System.Drawing.Point(33, 209);
-            this.panelConsultar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelConsultar.Margin = new System.Windows.Forms.Padding(4);
             this.panelConsultar.Name = "panelConsultar";
             this.panelConsultar.Size = new System.Drawing.Size(509, 270);
             this.panelConsultar.TabIndex = 8;
@@ -216,7 +216,7 @@ namespace Biblioteca.UI
             // btnBuscar
             // 
             this.btnBuscar.Location = new System.Drawing.Point(29, 64);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(133, 23);
             this.btnBuscar.TabIndex = 25;
@@ -229,7 +229,7 @@ namespace Biblioteca.UI
             this.btnMasInfo.BackColor = System.Drawing.Color.Aquamarine;
             this.btnMasInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMasInfo.Location = new System.Drawing.Point(29, 270);
-            this.btnMasInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMasInfo.Margin = new System.Windows.Forms.Padding(4);
             this.btnMasInfo.Name = "btnMasInfo";
             this.btnMasInfo.Size = new System.Drawing.Size(81, 37);
             this.btnMasInfo.TabIndex = 24;
@@ -258,7 +258,7 @@ namespace Biblioteca.UI
             // tbCodigoLibroConsultar
             // 
             this.tbCodigoLibroConsultar.Location = new System.Drawing.Point(29, 34);
-            this.tbCodigoLibroConsultar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCodigoLibroConsultar.Margin = new System.Windows.Forms.Padding(4);
             this.tbCodigoLibroConsultar.Name = "tbCodigoLibroConsultar";
             this.tbCodigoLibroConsultar.Size = new System.Drawing.Size(100, 20);
             this.tbCodigoLibroConsultar.TabIndex = 22;
@@ -282,7 +282,7 @@ namespace Biblioteca.UI
             this.lstbResultado.Items.AddRange(new object[] {
             " "});
             this.lstbResultado.Location = new System.Drawing.Point(28, 130);
-            this.lstbResultado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstbResultado.Margin = new System.Windows.Forms.Padding(4);
             this.lstbResultado.Name = "lstbResultado";
             this.lstbResultado.Size = new System.Drawing.Size(477, 108);
             this.lstbResultado.TabIndex = 10;
@@ -323,7 +323,7 @@ namespace Biblioteca.UI
             this.panelIngresar.Controls.Add(this.tbObservaciones);
             this.panelIngresar.Controls.Add(this.tbCodigoLibroIngresar);
             this.panelIngresar.Location = new System.Drawing.Point(33, 106);
-            this.panelIngresar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelIngresar.Margin = new System.Windows.Forms.Padding(4);
             this.panelIngresar.Name = "panelIngresar";
             this.panelIngresar.Size = new System.Drawing.Size(509, 266);
             this.panelIngresar.TabIndex = 9;
@@ -354,7 +354,7 @@ namespace Biblioteca.UI
             this.btnListo.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnListo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnListo.Location = new System.Drawing.Point(29, 203);
-            this.btnListo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnListo.Margin = new System.Windows.Forms.Padding(4);
             this.btnListo.Name = "btnListo";
             this.btnListo.Size = new System.Drawing.Size(99, 31);
             this.btnListo.TabIndex = 11;
@@ -365,7 +365,7 @@ namespace Biblioteca.UI
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(19, 109);
+            this.lblPrecio.Location = new System.Drawing.Point(19, 137);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(37, 13);
             this.lblPrecio.TabIndex = 8;
@@ -374,7 +374,7 @@ namespace Biblioteca.UI
             // lblObservaciones
             // 
             this.lblObservaciones.AutoSize = true;
-            this.lblObservaciones.Location = new System.Drawing.Point(19, 61);
+            this.lblObservaciones.Location = new System.Drawing.Point(16, 78);
             this.lblObservaciones.Name = "lblObservaciones";
             this.lblObservaciones.Size = new System.Drawing.Size(78, 13);
             this.lblObservaciones.TabIndex = 7;
@@ -383,7 +383,7 @@ namespace Biblioteca.UI
             // lblCodigoLibroIngresar
             // 
             this.lblCodigoLibroIngresar.AutoSize = true;
-            this.lblCodigoLibroIngresar.Location = new System.Drawing.Point(19, 13);
+            this.lblCodigoLibroIngresar.Location = new System.Drawing.Point(20, 19);
             this.lblCodigoLibroIngresar.Name = "lblCodigoLibroIngresar";
             this.lblCodigoLibroIngresar.Size = new System.Drawing.Size(69, 13);
             this.lblCodigoLibroIngresar.TabIndex = 6;
@@ -392,7 +392,7 @@ namespace Biblioteca.UI
             // tbPrecio
             // 
             this.tbPrecio.Location = new System.Drawing.Point(29, 154);
-            this.tbPrecio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPrecio.Margin = new System.Windows.Forms.Padding(4);
             this.tbPrecio.Name = "tbPrecio";
             this.tbPrecio.Size = new System.Drawing.Size(100, 20);
             this.tbPrecio.TabIndex = 2;
@@ -402,7 +402,7 @@ namespace Biblioteca.UI
             // tbObservaciones
             // 
             this.tbObservaciones.Location = new System.Drawing.Point(29, 95);
-            this.tbObservaciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbObservaciones.Margin = new System.Windows.Forms.Padding(4);
             this.tbObservaciones.Name = "tbObservaciones";
             this.tbObservaciones.Size = new System.Drawing.Size(100, 20);
             this.tbObservaciones.TabIndex = 1;
@@ -410,7 +410,7 @@ namespace Biblioteca.UI
             // tbCodigoLibroIngresar
             // 
             this.tbCodigoLibroIngresar.Location = new System.Drawing.Point(29, 36);
-            this.tbCodigoLibroIngresar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCodigoLibroIngresar.Margin = new System.Windows.Forms.Padding(4);
             this.tbCodigoLibroIngresar.Name = "tbCodigoLibroIngresar";
             this.tbCodigoLibroIngresar.Size = new System.Drawing.Size(100, 20);
             this.tbCodigoLibroIngresar.TabIndex = 0;
@@ -429,7 +429,7 @@ namespace Biblioteca.UI
             this.Controls.Add(this.lblIngresar);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmEjemplar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Biblioteca";
