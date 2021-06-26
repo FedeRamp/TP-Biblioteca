@@ -211,7 +211,7 @@ namespace Biblioteca.UI
             this.dateTimePicker1.Location = new System.Drawing.Point(237, 95);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(132, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(132, 20);
             this.dateTimePicker1.TabIndex = 6;
             // 
             // label5
@@ -220,7 +220,7 @@ namespace Biblioteca.UI
             this.label5.Location = new System.Drawing.Point(233, 75);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(121, 17);
+            this.label5.Size = new System.Drawing.Size(93, 13);
             this.label5.TabIndex = 15;
             this.label5.Text = "Fecha Nacimiento";
             // 
@@ -230,16 +230,16 @@ namespace Biblioteca.UI
             this.label7.Location = new System.Drawing.Point(233, 16);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(31, 17);
+            this.label7.Size = new System.Drawing.Size(26, 13);
             this.label7.TabIndex = 14;
             this.label7.Text = "DNI";
             // 
             // txtDNI
             // 
             this.txtDNI.Location = new System.Drawing.Point(237, 36);
-            this.txtDNI.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDNI.Margin = new System.Windows.Forms.Padding(4);
             this.txtDNI.Name = "txtDNI";
-            this.txtDNI.Size = new System.Drawing.Size(132, 22);
+            this.txtDNI.Size = new System.Drawing.Size(132, 20);
             this.txtDNI.TabIndex = 5;
             this.txtDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNI_KeyPress);
             // 
@@ -392,14 +392,14 @@ namespace Biblioteca.UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(761, 554);
+            this.ClientSize = new System.Drawing.Size(571, 450);
             this.Controls.Add(this.panelIngresar);
             this.Controls.Add(this.panelConsultar);
             this.Controls.Add(this.lblConsultar);
             this.Controls.Add(this.lblIngresar);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Biblioteca";
